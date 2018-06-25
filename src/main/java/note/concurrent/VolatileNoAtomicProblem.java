@@ -3,7 +3,7 @@ package note.concurrent;
 /**
  * Windows 10 + JDK 8
  */
-public class VolatileNoAtomic {
+public class VolatileNoAtomicProblem {
 
     // volatile variable
     static volatile int c;
