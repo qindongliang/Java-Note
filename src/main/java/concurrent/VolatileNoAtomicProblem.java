@@ -1,4 +1,4 @@
-package note.concurrent;
+package concurrent;
 
 /**
  * volatile仅仅保证可见性，不保证一致性和原子性

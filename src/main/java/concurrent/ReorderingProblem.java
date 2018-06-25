@@ -1,4 +1,4 @@
-package note.concurrent;
+package concurrent;
 
 /**
  * 重排序问题
