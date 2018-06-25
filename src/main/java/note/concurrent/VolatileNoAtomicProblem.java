@@ -1,7 +1,7 @@
 package note.concurrent;
 
 /**
- * Windows 10 + JDK 8
+ * volatile仅仅保证可见性，不保证一致性和原子性
  */
 public class VolatileNoAtomicProblem {
 
