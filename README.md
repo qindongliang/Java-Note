@@ -15,6 +15,8 @@ Java相关的笔记
 
 [线程基础概念理解](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650335993&idx=1&sn=90d11add23f427bea2eb5330967f3512&chksm=83aac6c3b4dd4fd5989d5ed0f28483cbc2262c64fbfa30b9d0295581f1a3de77409434adc668#rd)
 
+[理解Java内存模型](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336013&idx=1&sn=49879efe375c678d234c39b549057940&chksm=83aac737b4dd4e217ad316abaa586bd6b7c67ffbc08ea6e9acaba0b4005f9d15086926fb0de8#rd)
+
 
 ### Java数据结构
 
