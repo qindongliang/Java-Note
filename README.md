@@ -7,12 +7,12 @@ Java相关的学习笔记
 
 如果发现理解的有问题或者不到位，请给我提问题issue。
 
-### Java基础
+### 基础
 
 [关于Java里面的字符串拼接的方法和性能](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336017&idx=1&sn=e3408392c4f443438aae0f4072f852da&chksm=83aac72bb4dd4e3d9edb6111633cef2dad3059158bd25ce151c912899c34d24c9b9ec5eb9e4e#rd)
 
 
-### Java并发
+### 并发
 
 [进程与线程](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650335998&idx=1&sn=33ec033a05a312cdbd8054dc68cc922d&chksm=83aac6c4b4dd4fd2d79898ceea02afa1d593cbf5e8dd3c768a270ad723b9df935770d229b322#rd)
 
@@ -29,7 +29,7 @@ Java相关的学习笔记
 
 
 
-### Java数据结构
+### 数据结构
 
 
 
