@@ -7,6 +7,7 @@ Java相关的笔记
 
 ### Java基础
 
+[关于Java里面的字符串拼接的方法和性能](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336017&idx=1&sn=e3408392c4f443438aae0f4072f852da&chksm=83aac72bb4dd4e3d9edb6111633cef2dad3059158bd25ce151c912899c34d24c9b9ec5eb9e4e#rd)
 
 
 ### Java并发
@@ -20,6 +21,8 @@ Java相关的笔记
 [关于JIT编译器](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336006&idx=1&sn=c928550a172b982d7917c3d250468336&chksm=83aac73cb4dd4e2a700044e59b4200485c541aacd0ab0c6cc6482b80def2cefec66518eeb568#rd)
 
 [证明Java多线程中的成员变量的值是互不可见的](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336010&idx=1&sn=7fa6ab1e6b19d622697773e2ced5a0be&chksm=83aac730b4dd4e269bc3cec4a6fa7d93c15cce508e8633efbc1409f3855a173a35ca68776213#rd)
+
+[Java里面volatile关键字修饰引用变量的陷阱](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336021&idx=1&sn=67e5bb8bb804e3fb8f2161ad20305048&chksm=83aac72fb4dd4e3918f112a2b215956de72552576861c695861ec16f6af77b5f7ba1df22626c#rd)
 
 
 
