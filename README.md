@@ -18,6 +18,8 @@ Java相关的学习笔记
 
 [线程基础概念理解](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650335993&idx=1&sn=90d11add23f427bea2eb5330967f3512&chksm=83aac6c3b4dd4fd5989d5ed0f28483cbc2262c64fbfa30b9d0295581f1a3de77409434adc668#rd)
 
+[线程一些常用的方法介绍](https://github.com/qindongliang/qindongliang.github.io/blob/master/_posts/2018-06-27-Java%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md)
+
 [理解Java内存模型和happens-before关系](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336013&idx=1&sn=49879efe375c678d234c39b549057940&chksm=83aac737b4dd4e217ad316abaa586bd6b7c67ffbc08ea6e9acaba0b4005f9d15086926fb0de8#rd)
 
 [关于JIT编译器](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336006&idx=1&sn=c928550a172b982d7917c3d250468336&chksm=83aac73cb4dd4e2a700044e59b4200485c541aacd0ab0c6cc6482b80def2cefec66518eeb568#rd)
