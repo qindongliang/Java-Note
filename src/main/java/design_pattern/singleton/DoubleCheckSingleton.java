@@ -16,7 +16,7 @@ public class DoubleCheckSingleton {
     }
 
     /***
-     * 在多线程的环境下，获取对象单实例
+     * 基于双检锁模式获取单例
      * @return
      */
     public static DoubleCheckSingleton getInstance(){
@@ -38,6 +38,21 @@ public class DoubleCheckSingleton {
         return instance;
 
     }
+
+
+    /***
+     * 基于同步方法的单例模式
+     * @return
+     */
+    public synchronized static DoubleCheckSingleton getInstanceBySync(){
+
+        if (instance==null){
+            instance=new DoubleCheckSingleton();
+        }
+        return instance;
+
+    }
+
 
 
 
