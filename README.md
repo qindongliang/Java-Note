@@ -11,6 +11,10 @@ Java相关的学习笔记
 
 [关于Java里面的字符串拼接的方法和性能](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336017&idx=1&sn=e3408392c4f443438aae0f4072f852da&chksm=83aac72bb4dd4e3d9edb6111633cef2dad3059158bd25ce151c912899c34d24c9b9ec5eb9e4e#rd)
 
+[重新认识同步与异步，阻塞和非阻塞的概念](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336029&idx=1&sn=bc1f040e4bc297dbf1adb2549599b47e&chksm=83aac727b4dd4e3119e6348616a25b5b079a94889d16cdf7bdebd17948c79e835cbea87f5aca#rd)
+
+[Java单例模式之双检锁深入思考](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336033&idx=1&sn=ea8ad565ba06469a31b7463a2bb137a9&chksm=83aac71bb4dd4e0d6c9d59b25bda654dd1bbbd2a11884f577e4ce9589eb29cfb8ae52a023c33#rd)
+
 
 ### 并发
 
