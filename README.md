@@ -34,7 +34,7 @@ Java相关的学习笔记
 
 [Java里面volatile关键字修饰引用变量的陷阱](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336021&idx=1&sn=67e5bb8bb804e3fb8f2161ad20305048&chksm=83aac72fb4dd4e3918f112a2b215956de72552576861c695861ec16f6af77b5f7ba1df22626c#rd)
 
-[关于Java里面多线程同步的一些知识][https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336037&idx=1&sn=ae417a40a9e2c40a05e31dfab2974725&chksm=83aac71fb4dd4e0976d36b1ce6fe5ca01a9c325cf426bf0099d28d1e915e35e4f0ce12db2b16#rd]
+[关于Java里面多线程同步的一些知识](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336037&idx=1&sn=ae417a40a9e2c40a05e31dfab2974725&chksm=83aac71fb4dd4e0976d36b1ce6fe5ca01a9c325cf426bf0099d28d1e915e35e4f0ce12db2b16#rd)
 
 
 ### 数据结构与算法
