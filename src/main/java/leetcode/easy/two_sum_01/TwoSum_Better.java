@@ -1,4 +1,4 @@
-package leetcode.two_sum_01;
+package leetcode.easy.two_sum_01;
 
 import org.junit.Test;
 
