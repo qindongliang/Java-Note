@@ -10,9 +10,7 @@ public class Solution_Normal1 {
 
         long temp=x;
 
-        boolean flag=false;
         if(x<0){
-            flag=true;
             temp = temp * -1;
         }
 
@@ -22,7 +20,7 @@ public class Solution_Normal1 {
             return 0;
         }
 
-        if (flag){
+        if (x<0){
           return (int)value * -1;
 
         }
