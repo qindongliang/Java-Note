@@ -58,15 +58,9 @@ public class ProducerConsumerDemo1 {
 
                     System.out.println("生产值："+value);
                     queue.add(value);
-
                     queue.notifyAll();
 
-                    Thread.yield();
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
 
