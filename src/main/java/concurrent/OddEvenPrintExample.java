@@ -1,132 +1,104 @@
 package concurrent;
 
-import java.util.Random;
-
 /**
  * Created by qindongliang on 2018/7/12.
+ * 使用两个线程交替按顺序打印奇数和偶数
  */
 public class OddEvenPrintExample {
 
 
+    /***
+     * 监视器对象
+     */
+    static  class CounterGenerator{
+        public  int incrementCount=1;//开始的打印的位置
+        private int stopCount;//停止的位置
 
-    static  class CounterGenrator{
-
-        public  int count=1;
+        public CounterGenerator(int incrementCount,int stopCount){
+            this.incrementCount=incrementCount;
+            this.stopCount=stopCount;
+        }
 
     }
 
 
-
+    /***
+     * 偶数打印线程
+     */
     static class EvenThread extends Thread{
 
-         CounterGenrator counterGenrator;
+         CounterGenerator counterGenrator;
 
-         public EvenThread(CounterGenrator counterGenrator){
+         public EvenThread(CounterGenerator counterGenrator){
              this.setName("even thread");
              this.counterGenrator=counterGenrator;
          }
 
          @Override
          public void run() {
-
-             while (counterGenrator.count<11){
-
-                 synchronized (counterGenrator){
-
-
-                     while (counterGenrator.count%2!=0){
-
-                         System.out.println("even thread wait ");
-                         try {
+             try {
+                 //终止条件
+                 while (counterGenrator.incrementCount < counterGenrator.stopCount) {
+                     //监视器加锁
+                     synchronized (counterGenrator) {
+                         //判断是奇数，就挂起等待
+                         while (counterGenrator.incrementCount % 2 != 0) {
+                             System.out.println("even thread wait ");
                              counterGenrator.wait();
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
                          }
-
-
+                         //打印数字
+                         System.out.println("even thread print " + counterGenrator.incrementCount);
+                         counterGenrator.incrementCount++;//更新计数器
+                         Thread.sleep(1000);//避免打印太快
+                         counterGenrator.notify();//通知奇数线程
                      }
-
-
-                     System.out.println("even thread print "+counterGenrator.count);
-
-                     counterGenrator.count++;
-                     try {
-                         Thread.sleep(1000);
-                     } catch (InterruptedException e) {
-                         e.printStackTrace();
-                     }
-
-                     counterGenrator.notify();
 
                  }
 
-
-
-
-
+             }catch (Exception e){
+                 e.printStackTrace();
              }
-
-
-
          }
      }
 
 
-
+    /***
+     * 奇数打印线程
+     */
    static class OddThread extends Thread{
 
-        CounterGenrator counterGenrator;
-
-        public OddThread(CounterGenrator counterGenrator){
+        CounterGenerator counterGenrator;
+        public OddThread(CounterGenerator counterGenrator){
             this.setName("odd thread");
             this.counterGenrator=counterGenrator;
+
         }
 
         @Override
         public void run() {
-
-            while (counterGenrator.count<11){
-
-
-                synchronized (counterGenrator){
-
-
-                    while (counterGenrator.count%2==0){
-
-                        System.out.println("odd thread wait ");
-                        try {
+            try {
+                //终止条件
+                while (counterGenrator.incrementCount < counterGenrator.stopCount) {
+                    //监视器加锁
+                    synchronized (counterGenrator) {
+                        //判断是偶数，就挂起等待
+                        while (counterGenrator.incrementCount % 2 == 0) {
+                            System.out.println("odd thread wait ");
                             counterGenrator.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
                         }
-
+                        //打印数字
+                        System.out.println("odd thread print " + counterGenrator.incrementCount);
+                        counterGenrator.incrementCount++;//更新计数器
+                        Thread.sleep(1000);//避免打印太快
+                        counterGenrator.notify();//通知偶数线程
 
                     }
-
-
-                    System.out.println("odd thread print "+counterGenrator.count);
-
-                    counterGenrator.count++;
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    counterGenrator.notify();
-
 
                 }
 
-
-
-
-
+            }catch (Exception e){
+                e.printStackTrace();
             }
-
-
-
         }
     }
 
@@ -134,28 +106,14 @@ public class OddEvenPrintExample {
 
     public static void main(String[] args) {
 
-        CounterGenrator c=new CounterGenrator();
-
-
-
-        OddThread oddThread=new OddThread(c);
-
-
-        EvenThread evenThread=new EvenThread(c);
-
-
-
-
+        //监视器对象，两个参数分别是开始打印的位置与程序终止的位置
+        CounterGenerator counterGenerator=new CounterGenerator(1,10);
+        //奇数打印线程
+        OddThread oddThread=new OddThread(counterGenerator);
+        //偶数打印线程
+        EvenThread evenThread=new EvenThread(counterGenerator);
         oddThread.start();
-
         evenThread.start();
-
-
-
-
-
-
-
 
     }
 
