@@ -2,6 +2,7 @@ package leetcode.easy.palindrome_number;
 
 /**
  * Created by qindongliang on 2018/7/15.
+ * 判断是否为回文数字
  */
 public class Palindrome_Number_Normal {
 
