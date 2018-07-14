@@ -38,12 +38,14 @@ Java相关的学习笔记
 
 [关于Java里面wait，notify，notifyAll的常见问题](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336045&idx=1&sn=77e202b4ccc8a5a937c5c3188330c32b&chksm=83aac717b4dd4e0154bedfe427b06e6df1b224fe590fab20f737494014c04516191a2b5f7779#rd)
 
+[在Java里面实现两个线程交替顺序打印奇偶数字](https://github.com/qindongliang/Java-Note/blob/master/src/main/java/concurrent/OddEvenPrintExample.java)
+
 ### 数据结构与算法
 
 
-1，leetcode之两数加和
+1，[leetcode之两数加和]()
 
-2，反转数字
+2，[反转数字]
 
 
 
