@@ -42,6 +42,8 @@ Java相关的学习笔记
 
 [关于线程死锁问题](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336050&idx=1&sn=ae83d3cbf540ff4343f065e2f8eb14e9&chksm=83aac708b4dd4e1e26a81b5ced8942238de2d0ae865d3a4c0b735f0e5f6a1e74cb938348db06#rd)
 
+[线程的死锁，活锁和饥饿总结](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&tempkey=OTY1X1orRjkzbnIxQVhIcEFPYWlEbWw2ajZ6TUQ4UnpBS1VweTh2QnRxOHZ1RlBma2N4dkJxd3J0ZnY4V3J2a21mdDl2Ti14SmNUOUx0QnI1Mzh1cWZEaWd2SnNMRm1TZEQ2LWxvUVc4TzJaM25nNFJvekYtN2lYMUJHWWRZN19oVlQxXzFSb3ZYNy0tUW9XaHRPQkd2cHVEYXYzaExYVGM4Q2h5enR0UlF%2Bfg%3D%3D&chksm=03aac70f34dd4e193b01f5c2a5a3b451adefa48ea0375625455e0f846625304a928bb818cdbe#rd)
+
 ### 数据结构与算法
 
 
