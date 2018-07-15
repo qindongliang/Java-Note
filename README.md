@@ -40,6 +40,8 @@ Java相关的学习笔记
 
 [在Java里面实现两个线程交替顺序打印奇偶数字](https://github.com/qindongliang/Java-Note/blob/master/src/main/java/concurrent/OddEvenPrintExample.java)
 
+[关于线程死锁问题](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336050&idx=1&sn=ae83d3cbf540ff4343f065e2f8eb14e9&chksm=83aac708b4dd4e1e26a81b5ced8942238de2d0ae865d3a4c0b735f0e5f6a1e74cb938348db06#rd)
+
 ### 数据结构与算法
 
 
