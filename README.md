@@ -17,6 +17,9 @@ Java相关的学习笔记
 
 [理解Java并发里面的CAS概念](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336061&idx=1&sn=9a8201eebda9ac2bf8e6386652542b18&chksm=83aac707b4dd4e11c704cca35952d31b479d084e38629331719aa7c25bc2c4dfb1a379f023b6#rd)
 
+[关于Java中return和finally的执行顺序](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&tempkey=OTY2X0dwYUdpVld2TzBobGg4WWE4aXZJeEdnTzRqdWVPajlBRlhXT2dRUzBpRlFpTHRPMU1zTTByS1F2Z2d1MWFNaGllakFZOEI3OVR0VndSbkdnTy1hdDNSTnhlZXNjU3FRbkpoMmpHYlBNRFkwQzFMem9UOUI2alVlSkxmSC0zZFZqUG9ZOHdCREhXd0QxdmlrYXZzMk1VSUQ5SXJzdnF1RGhWSVF5d2d%2Bfg%3D%3D&chksm=03aac77d34dd4e6bd187d2cfddf3ed658f5c007985fdcbafa84d348b51605e15fa01429f47e3#rd)
+
+
 
 
 ### 并发
@@ -46,6 +49,8 @@ Java相关的学习笔记
 [线程的死锁，活锁和饥饿总结](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&tempkey=OTY1X1orRjkzbnIxQVhIcEFPYWlEbWw2ajZ6TUQ4UnpBS1VweTh2QnRxOHZ1RlBma2N4dkJxd3J0ZnY4V3J2a21mdDl2Ti14SmNUOUx0QnI1Mzh1cWZEaWd2SnNMRm1TZEQ2LWxvUVc4TzJaM25nNFJvekYtN2lYMUJHWWRZN19oVlQxXzFSb3ZYNy0tUW9XaHRPQkd2cHVEYXYzaExYVGM4Q2h5enR0UlF%2Bfg%3D%3D&chksm=03aac70f34dd4e193b01f5c2a5a3b451adefa48ea0375625455e0f846625304a928bb818cdbe#rd)
 
 [关于线程中的sleep，wait，yield的区别](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336057&idx=1&sn=5d28cc3c30e15e8397dc07936aa482fd&chksm=83aac703b4dd4e15a9cecd9313706207eb6fca13bd136e5506e6b6300725d72e5d2b3ce79ca8#rd)
+
+
 
 
 ### 数据结构与算法
