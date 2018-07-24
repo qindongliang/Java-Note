@@ -41,20 +41,22 @@ public class LockQueueExample2 {
 
             try {
 
-                while (queue.size() == limitCount) {
-
-                    System.out.println(name + " 队列满了，生产者开始阻塞 ");
-                    cl.await();//满了就阻塞
-                }
 
 
+                    while (queue.size() == limitCount) {
 
-                int feed = random.nextInt(100);
-                System.out.println("生产者放入一条数据：" + feed);
-                queue.add(feed);
+                        System.out.println(name + " 队列满了，生产者开始阻塞 ");
+                        cl.await();//满了就阻塞
+                    }
 
-                Thread.sleep(1000);
-                cl.signalAll();
+
+                    int feed = random.nextInt(100);
+                    System.out.println("生产者放入一条数据：" + feed);
+                    queue.add(feed);
+
+                    Thread.sleep(1000);
+                    cl.signalAll();
+
 
             } finally {
                 lock.unlock();
@@ -73,24 +75,32 @@ public class LockQueueExample2 {
 
             try {
 
-                while (queue.isEmpty()) {
-
-                    System.out.println(name + " 队列空了，消费者开始阻塞 ");
-
-                    cl.await();//满了就阻塞
-                }
 
 
-                int feed = queue.remove();
-                System.out.println("消费者消费一条数据：" + feed);
+                    while (queue.isEmpty()) {
 
-                Thread.sleep(1000);
+                        System.out.println(name + " 队列空了，消费者开始阻塞 ");
 
-                cl.signalAll();//通知生产者可以生产了。
+                        cl.await();//满了就阻塞
+                    }
+
+
+                    int feed = queue.remove();
+                    System.out.println("消费者消费一条数据：" + feed);
+
+                    Thread.sleep(1000);
+
+                    cl.signalAll();//通知生产者可以生产了。
+
+
+
 
             } finally {
                 lock.unlock();
             }
+
+
+
 
         }
 
