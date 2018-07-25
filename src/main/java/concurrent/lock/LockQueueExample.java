@@ -3,6 +3,7 @@ package concurrent.lock;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -23,6 +24,8 @@ public class LockQueueExample {
 
 
     Random random=new Random();
+
+
 
     int limitCount;
 
@@ -53,8 +56,12 @@ public class LockQueueExample {
                 System.out.println("生产者放入一条数据：" + feed);
                 queue.add(feed);
 
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 empty.signalAll();
+
+//                full.await(30, TimeUnit.MILLISECONDS);
+
+
 
             } finally {
                 lock.unlock();
@@ -84,9 +91,11 @@ public class LockQueueExample {
                 int feed = queue.remove();
                 System.out.println("消费者消费一条数据：" + feed);
 
-                Thread.sleep(1000);
+                Thread.sleep(500);
 
                 full.signalAll();//通知生产者可以生产了。
+
+//                empty.await(50,TimeUnit.MILLISECONDS);
 
             } finally {
                 lock.unlock();
