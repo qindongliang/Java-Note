@@ -37,7 +37,7 @@ public class LockOddEvenPrintExample {
                         isOdd.await();
                     }
 
-                    System.out.println(Thread.currentThread().getName()+" 打印 "+CountValue.count);
+                    System.out.println(Thread.currentThread().getName()+"线程 打印 "+CountValue.count);
                      CountValue.count++;
 
 
@@ -78,7 +78,7 @@ public class LockOddEvenPrintExample {
 
 
 
-                    System.out.println(Thread.currentThread().getName()+" 打印 "+CountValue.count);
+                    System.out.println(Thread.currentThread().getName()+"线程 打印 "+CountValue.count);
                     CountValue.count++;
                     Thread.sleep(1000);
                     // 通知偶数线程
