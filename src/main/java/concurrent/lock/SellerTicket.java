@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class SellerTicket {
 
     //火车票余票数量
-    private static  int tickctCount=20;
+    private static  int tickctCount=10;
     //使用重入锁，默认是不公平的，
     private static Lock lock=new ReentrantLock();
     //使用线程协作
