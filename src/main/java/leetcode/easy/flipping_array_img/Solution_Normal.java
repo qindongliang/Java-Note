@@ -16,6 +16,25 @@ public class Solution_Normal {
         return ab;
     }
 
+    /***
+     * beetter
+     * @param a
+     */
+    static void filp2(int a[][]){
+
+        for (int i = 0; i <a.length ; i++) {
+            int array[]=a[i];
+            int n=array.length;
+            for (int j = 0; j <n/2 ; j++) {
+                int temp=array[j];
+                array[j]=array[n-1-j];
+                array[n-1-j]=temp;
+            }
+
+        }
+
+
+    }
 
     static void invert(int [][]ab){
         for (int i = 0; i <ab.length ; i++) {
@@ -49,42 +68,21 @@ public class Solution_Normal {
 
     }
 
-    /***
-     * beetter
-     * @param a
-     */
-    static void filp2(int a[][]){
-
-        for (int i = 0; i <a.length ; i++) {
-            int array[]=a[i];
-            int n=array.length;
-            for (int j = 0; j <n/2 ; j++) {
-                int temp=array[j];
-                array[j]=array[n-1-j];
-                array[n-1-j]=temp;
-            }
-
-        }
 
 
-    }
-
-    static void swapPos(){
+    static void reverseArray(){
 
         int array[]={1,2,5,4};
-        System.out.println(Arrays.toString(array));
+        System.out.println("原始数组："+Arrays.toString(array));
+        //数组的长度
         int n=array.length;
-        int swap_count=n/2;
-        System.out.println("swap_count: "+swap_count);
+        //只需要循环长度的一半的次数即可完成反转
         for (int j = 0; j <n/2 ; j++) {
-            int temp=array[j];
-            array[j]=array[n-1-j];
-            array[n-1-j]=temp;
+            int temp=array[j];//获取前半部分数组的每一个元素
+            array[j]=array[n-1-j];//获取对应的后半部分数组的每一个元素
+            array[n-1-j]=temp;//在原数组中完成前后交换
         }
-
-        System.out.println(Arrays.toString(array));
-
-
+        System.out.println("反转后的数组："+Arrays.toString(array));
 
     }
 
