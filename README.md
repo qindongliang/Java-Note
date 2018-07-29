@@ -55,12 +55,8 @@ Java相关的学习笔记
 
 ### 数据结构与算法
 
+https://github.com/qindongliang/Java-Note/tree/master/src/main/java/leetcode
 
-1，[leetcode之两数加和]()
-
-2，[反转数字]()
-
-3, [回文整数]()
 
 
 
