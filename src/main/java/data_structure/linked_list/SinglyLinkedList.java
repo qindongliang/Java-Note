@@ -10,6 +10,7 @@ public class SinglyLinkedList {
 
         private Node head;
 
+
         public void addFirst(int data){
             Node newNode = new Node();
             newNode.value=data;
