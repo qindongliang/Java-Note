@@ -1,4 +1,4 @@
-package concurrent.lock_compare;
+package concurrent.spinlock;
 
 import java.util.concurrent.atomic.AtomicReference;
 
