@@ -51,6 +51,8 @@ Java相关的学习笔记
 [关于线程中的sleep，wait，yield的区别](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336057&idx=1&sn=5d28cc3c30e15e8397dc07936aa482fd&chksm=83aac703b4dd4e15a9cecd9313706207eb6fca13bd136e5506e6b6300725d72e5d2b3ce79ca8#rd)
 [使用Lock+Conditionk编写三个经典多线程例子](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336080&idx=1&sn=b9ddb02d687ed1908b1068b6159ef502&chksm=83aac76ab4dd4e7ce0f1f411c06ff666a04cade8662d3c3fafe74157438a7f7a89257f878d3c#rd)
 
+[理解四种自旋锁的特点](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&tempkey=OTY4X3RHQUlpbkVrdnhqM2kwRDczNG1GU2dMUzZkbzVZai0yYWVmelBtcHVQczZsRzlWdUtNcUE4eW9Uc2dHbFJUaDB4NXU4cWczdTduVkM1UDQ2cHVURGxxNVppSHlpNkM0VVNqNzdJdmdESjYzY1ZLN3lNQ1RPdlJ3Nkd4RmhMNnlpTEY3dDg3ZHdycnRtbk4wcVgzdmFralRFUURTcjZCR2YyZ2ZkX1F%2Bfg%3D%3D&chksm=03aac75834dd4e4e80dad51ba86d058f6f8f7604822323a2903b15986aed6d58ddbec2519f6b#rd)
+
 
 
 ### 数据结构与算法
