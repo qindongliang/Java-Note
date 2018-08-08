@@ -21,7 +21,7 @@ public class LockSupportFIFOMutexExample {
 
         // Block while not first in queue or cannot acquire lock
         //peek取出头元素但不移除，判断头元素是否等当前线程 ，如果不是当前元素，直接进入循环
-        //如果头不是当前线程，那么判断
+        //如果头不是当前线程，那么判断CAS指令，如果成功直接执行代码，否则进入循环阻塞
         while (waiters.peek() != current || !locked.compareAndSet(false, true)) {
             LockSupport.park(this);
             if (Thread.interrupted()) // ignore interrupts while waiting
