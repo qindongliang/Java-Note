@@ -53,7 +53,8 @@ Java相关的学习笔记
 
 [理解四种自旋锁的特点](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336099&idx=1&sn=1118ea54112de6f9d1075d8721b82741&chksm=83aac759b4dd4e4f012e774f90cf91d3063dda5bebcdfcf05ad46a8a0cd0ffd71bbee912f8ef#rd)
 
-
+[关于ThreadLcoal关键字](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336103&idx=1&sn=5a5c7be10d79c36efa113c35548ff409&chksm=83aac75db4dd4e4bfc4a64886c46c3aceb0f0f37d9fdea8abef0ab04c8aecd0c417f67383cf5#rd)
+[理解Java里面的LockSupport工具类](https://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650336106&idx=1&sn=176ad1716c630c2ada8fdb7a4d491d85&chksm=83aac750b4dd4e467c8d72d85439b54c2e03f1e18b46ab7969bc18010a49501c92c49431c395#rd)
 
 ### 数据结构与算法
 
