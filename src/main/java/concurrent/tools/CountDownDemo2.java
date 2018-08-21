@@ -1,5 +1,6 @@
 package concurrent.tools;
 
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -22,9 +23,8 @@ public class CountDownDemo2 {
         }
         @Override
         public void run() {
-
             try {
-                System.out.println(Thread.currentThread().getName()+"  开始阻塞中 ..... ");
+                System.out.println(Thread.currentThread().getName()+"  启动了，等待main线程调度.......");
                 startSignal.await();
                 doWork();
                 System.out.println(Thread.currentThread().getName()+"  完活 ..... ");
@@ -56,14 +56,12 @@ public class CountDownDemo2 {
 
             new Thread(new Worker(startSignal,doneSignal)).start();
         }
-
-        Thread.sleep(3000);
-
-        System.out.println(Thread.currentThread().getName()+" 所有线程启动完毕...... ");
+        Thread.sleep(4000);
+        System.out.println(Thread.currentThread().getName()+"线程准备就绪，所有线程可以开始工作了..... ");
         startSignal.countDown();
         doneSignal.await();
 
-        System.out.println(Thread.currentThread().getName()+" 所有任务处理完毕...... ");
+        System.out.println(Thread.currentThread().getName()+"线程监控任务结束 ");
 
 
 
