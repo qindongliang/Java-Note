@@ -10,7 +10,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * Created by Administrator on 2018/8/23.
  */
-public class CylicBarrierDemo1 {
+public class CyclicBarrierDemo1 {
 
     private   CyclicBarrier cyclicBarrier;
     private List<List<Integer>> partialResults = Collections.synchronizedList(new ArrayList<>());
@@ -107,7 +107,7 @@ public class CylicBarrierDemo1 {
 
     public static void main(String[] args) {
 
-        CylicBarrierDemo1 demo=new CylicBarrierDemo1();
+        CyclicBarrierDemo1 demo=new CyclicBarrierDemo1();
 
         demo.runSimulation(3,3);
 

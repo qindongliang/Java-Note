@@ -6,7 +6,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * Created by Administrator on 2018/8/23.
  */
-public class CylicBarrierDemo3 {
+public class CyclicBarrierDemo3 {
 
 
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
