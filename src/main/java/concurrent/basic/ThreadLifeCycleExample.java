@@ -1,8 +1,4 @@
-package concurrent;
-
-import java.util.concurrent.Callable;
-
-import static concurrent.WaitingThread.demo3;
+package concurrent.basic;
 
 /**
  * Created by Administrator on 2018/6/27.

@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.basic;
 
 /**
  * 重排序问题

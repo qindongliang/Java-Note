@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.basic;
 
 import java.util.ArrayList;
 import java.util.List;

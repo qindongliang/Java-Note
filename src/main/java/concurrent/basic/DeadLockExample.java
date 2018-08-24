@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.basic;
 
 /**
  * Created by Administrator on 2018/7/13.
