@@ -7,7 +7,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * Created by Administrator on 2018/8/23.
  */
-public class CylicBarrierDemo2 {
+public class CyclicBarrierDemo2 {
 
 
     public static void main(String[] args) {
