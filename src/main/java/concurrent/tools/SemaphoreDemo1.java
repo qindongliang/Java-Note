@@ -11,38 +11,30 @@ public class SemaphoreDemo1 {
 
     public static void main(String[] args) throws InterruptedException {
 
-
         Semaphore semaphore=new Semaphore(3);
-
-        Lock lock=new ReentrantLock();
 
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                lock.lock();
                 try {
                     semaphore.acquire();
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + " 得到锁......");
-                lock.unlock();
+                System.out.println(Thread.currentThread().getName() + " 访问资源......");
+                    semaphore.release();
             }
         };
 
-
-        Thread t1=new Thread(runnable);
-        t1.start();
-
-        Thread t2=new Thread(runnable);
-        t2.start();
-
+        for (int i = 0; i < 5; i++) {
+            Thread thread=new Thread(runnable);
+            thread.start();
+        }
 
         Thread.sleep(3000);
 
 
-        System.out.println(t1.getState());
-        System.out.println(t2.getState());
 
 
 
