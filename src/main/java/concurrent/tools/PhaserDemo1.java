@@ -7,8 +7,26 @@ import java.util.concurrent.Phaser;
  */
 public class PhaserDemo1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+     test2();
+
+    }
+    public static  void test2() throws InterruptedException {
+
+        Phaser phaser=new Phaser(1);
+
+        for (int i = 0; i < 10; i++) {
+            phaser.register();
+            new Thread(new MyTask(phaser)).start();
+        }
+
+        Thread.sleep(3000);
+        phaser.arriveAndDeregister();
+
+    }
+
+    public  static void test1(){
         Phaser phaser=new Phaser();
 
         phaser.register();
