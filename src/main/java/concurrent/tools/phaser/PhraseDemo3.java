@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.phaser;
 
 import java.util.concurrent.Phaser;
 
