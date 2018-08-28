@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.cyclicbarrier;
 
 import java.util.ArrayList;
 import java.util.Collections;

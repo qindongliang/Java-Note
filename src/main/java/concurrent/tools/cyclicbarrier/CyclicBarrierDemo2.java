@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.cyclicbarrier;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;

@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.semaphore;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -18,10 +18,10 @@ public class SemaphoreDemo2 {
 
     public static void main(String[] args) {
 
-        SemaphoreDemo2 semaphoreDemo2=new SemaphoreDemo2(0);
+       final SemaphoreDemo2 semaphoreDemo2=new SemaphoreDemo2(0);
 
         Runnable runnable=new Runnable() {
-            @Override
+
             public void run() {
                 semaphoreDemo2.acquire();
                 try {

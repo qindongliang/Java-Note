@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.countdownlatch;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -21,7 +21,7 @@ public class CountDownDemo2 {
             this.startSignal=startSignal;
             this.dongSignal=dongSignal;
         }
-        @Override
+
         public void run() {
             try {
                 System.out.println(Thread.currentThread().getName()+"  启动了，等待main线程调度.......");

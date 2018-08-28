@@ -1,4 +1,4 @@
-package concurrent.tools;
+package concurrent.tools.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
