@@ -1,4 +1,4 @@
-package concurrent.lock;
+package concurrent.lock.rwlock;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
