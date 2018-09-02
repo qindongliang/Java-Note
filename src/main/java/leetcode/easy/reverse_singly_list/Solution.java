@@ -30,7 +30,7 @@ public class Solution {
   }
 
 
-  public void showAll(ListNode head){
+  public static void showAll(ListNode head){
       ListNode tmp=head;
       while (tmp!=null){
           System.out.println(tmp.val);
@@ -97,20 +97,51 @@ public class Solution {
     }
 
 
+    public static ListNode mergeSortedList(ListNode l1,ListNode l2){
+        if(l1==null) return l2;
+        if(l2==null) return l1;
+
+        if(l1.val<l2.val){
+            l1.next=mergeSortedList(l1.next,l2);
+            return l1;
+        }else{
+            l2.next=mergeSortedList(l2.next,l1);
+            return l2;
+        }
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
         Solution solution=new Solution();
-        solution.add(5);
-        solution.add(10);
-        solution.add(89);
-        solution.add(-1);
+        solution.add(1);
+        solution.add(3);
 
+        Solution solution2=new Solution();
+        solution2.add(2);
+        solution2.add(5);
+
+
+
+
+
+
+
+//        solution.showAll(solution.head);
+
+
+        ListNode newHead= mergeSortedList(solution.head,solution2.head);
+            showAll(newHead);
 //        solution.showAll(solution.reverse(solution.head));
 
-//        solution.delete1(-1);
-        solution.delete2(-1);
 
-        solution.showAll(solution.head);
+//        solution.delete1(-1);
+//        solution.delete2(-1);
+
+//        solution.showAll(solution.head);
 
 
     }
