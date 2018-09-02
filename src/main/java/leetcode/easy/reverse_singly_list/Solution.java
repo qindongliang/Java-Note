@@ -10,7 +10,7 @@ public class Solution {
     private ListNode head;
     private ListNode tail;
 
-    public class ListNode {
+    public static class ListNode {
      int val;
      ListNode next;
      ListNode(int x) { val = x; }
@@ -113,16 +113,53 @@ public class Solution {
     }
 
 
+    public static ListNode merge2SortedList(ListNode l1,ListNode l2){
+        if(l1==null) return l2;
+        if(l2==null) return l1;
+
+        ListNode dummyHead=new ListNode(0);
+        ListNode tail=dummyHead;
+
+        while (l1!=null&&l2!=null){
+            if(l1.val<=l2.val){
+                tail.next=l1;
+                l1=l1.next;
+            }else {
+                tail.next=l2;
+                l2=l2.next;
+            }
+            tail=tail.next;
+        }
+
+        if(l1!=null){
+            tail.next=l1;
+        }
+        if(l2!=null){
+            tail.next=l2;
+        }
+
+
+
+        return dummyHead.next;
+
+
+    }
+
 
     public static void main(String[] args) {
 
         Solution solution=new Solution();
         solution.add(1);
         solution.add(3);
+        solution.add(4);
 
         Solution solution2=new Solution();
+        solution2.add(1);
         solution2.add(2);
-        solution2.add(5);
+        solution2.add(4);
+        solution2.add(8);
+        solution2.add(9);
+        solution2.add(10);
 
 
 
@@ -133,7 +170,8 @@ public class Solution {
 //        solution.showAll(solution.head);
 
 
-        ListNode newHead= mergeSortedList(solution.head,solution2.head);
+//        ListNode newHead= mergeSortedList(solution.head,solution2.head);
+        ListNode newHead= merge2SortedList(solution.head,solution2.head);
             showAll(newHead);
 //        solution.showAll(solution.reverse(solution.head));
 
