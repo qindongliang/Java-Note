@@ -14,6 +14,7 @@ public class ConcurrentQueueTest {
         ConcurrentLinkedQueue<String> queue=new ConcurrentLinkedQueue<>();
 
 
+        //无界不阻塞的并发安全的队列使用cas+自旋实现，
 
 
         Runnable producer=new Runnable() {
@@ -34,8 +35,6 @@ public class ConcurrentQueueTest {
 
         new Thread(producer).start();
         new Thread(producer).start();
-
-        Thread.sleep(3000);
 
         Runnable consumer=new Runnable() {
             @Override
