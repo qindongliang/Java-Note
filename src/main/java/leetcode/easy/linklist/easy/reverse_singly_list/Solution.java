@@ -1,4 +1,4 @@
-package leetcode.easy.reverse_singly_list;
+package leetcode.easy.linklist.easy.reverse_singly_list;
 
 import java.util.List;
 
@@ -14,7 +14,12 @@ public class Solution {
      int val;
      ListNode next;
      ListNode(int x) { val = x; }
-  }
+
+        @Override
+        public String toString() {
+            return val+"";
+        }
+    }
 
 
   public void add(int val){
@@ -29,6 +34,17 @@ public class Solution {
 
   }
 
+    public void addNode(ListNode node){
+        ListNode tmp=node;
+        if(head==null){
+            head=tail=tmp;
+        }else {
+            tail.next=tmp;
+            tail=tmp;
+
+        }
+
+    }
 
   public static void showAll(ListNode head){
       ListNode tmp=head;
@@ -145,21 +161,103 @@ public class Solution {
 
     }
 
+    //对排序好的链表去重，一般的代码
+    public static ListNode duplicateSortedListNormal(ListNode head){
+
+
+        ListNode currentNode=head;
+        while (currentNode!=null){
+            ListNode next=currentNode.next;
+            if(next==null){
+                break;
+            }
+            if(currentNode.val==next.val){
+                currentNode.next = next.next;
+            }else {
+                currentNode = currentNode.next;
+            }
+        }
+
+        return head;
+
+    }
+
+
+    //对排序好的链表去重，简洁的代码
+    public static ListNode duplicateSortedListBetter(ListNode head){
+
+
+        ListNode currentNode=head;
+        while (currentNode!=null&&currentNode.next!=null){
+          if(currentNode.val==currentNode.next.val){
+              currentNode.next=currentNode.next.next;
+          }else {
+              currentNode=currentNode.next;
+          }
+        }
+        return head;
+
+    }
+
+    //判断链表是否有环
+//    方式一：相对速度法。
+//    fast 的 速度是 2 ，slow 的速度是 1 ，二者的相对速度是 2 - 1 = 1 。
+//    所以，如果有环的话，必定会出现 fast 追上 slow 的情况。
+    public static boolean hasCycle(ListNode head){
+
+        ListNode node1=new ListNode(1);
+        ListNode node2=new ListNode(2);
+        ListNode node3=new ListNode(3);
+        ListNode node4=new ListNode(4);
+        ListNode node5=new ListNode(5);
+                         //ListNode(1);
+        Solution solution=new Solution();
+        solution.addNode(node1);
+        solution.addNode(node2);
+        solution.addNode(node3);
+        solution.addNode(node4);
+        solution.addNode(node5);
+        solution.addNode(node1);
+//        solution.addNode(node2);
+
+        ListNode  solw=solution.head;
+
+        ListNode  fast=solution.head;
+
+        while (fast!=null&&fast.next!=null){
+            solw=solw.next;
+            fast=fast.next.next;
+            if(solw==fast) return true;
+        }
+
+        return false;
+
+
+    }
 
     public static void main(String[] args) {
+        System.out.println(hasCycle(null));
+    }
+
+
+
+    public static void main1(String[] args) {
 
         Solution solution=new Solution();
         solution.add(1);
+        solution.add(1);
+        solution.add(1);
+        solution.add(2);
+        solution.add(3);
         solution.add(3);
         solution.add(4);
 
-        Solution solution2=new Solution();
-        solution2.add(1);
-        solution2.add(2);
-        solution2.add(4);
-        solution2.add(8);
-        solution2.add(9);
-        solution2.add(10);
+
+
+
+//        showAll(solution.head);
+
+//        showAll(solution.duplicateSortedListBetter(solution.head));
 
 
 
@@ -167,19 +265,8 @@ public class Solution {
 
 
 
-//        solution.showAll(solution.head);
 
 
-//        ListNode newHead= mergeSortedList(solution.head,solution2.head);
-        ListNode newHead= merge2SortedList(solution.head,solution2.head);
-            showAll(newHead);
-//        solution.showAll(solution.reverse(solution.head));
-
-
-//        solution.delete1(-1);
-//        solution.delete2(-1);
-
-//        solution.showAll(solution.head);
 
 
     }
