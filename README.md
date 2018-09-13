@@ -26,8 +26,8 @@ Java相关的学习笔记
 
 #### 线程池全景
 
-[线程池类图](https://github.com/qindongliang/Java-Note/blob/master/src/main/resources/pic/threadpool_v2.jpg)
-
+线程池类图
+![image](https://github.com/qindongliang/Java-Note/blob/master/src/main/resources/pic/threadpool_v2.jpg)
 
 [进程与线程](http://mp.weixin.qq.com/s?__biz=MzAxMzE4MDI0NQ==&mid=2650335998&idx=1&sn=33ec033a05a312cdbd8054dc68cc922d&chksm=83aac6c4b4dd4fd2d79898ceea02afa1d593cbf5e8dd3c768a270ad723b9df935770d229b322#rd)
 
