@@ -47,6 +47,10 @@ public class Solution {
     }
 
   public static void showAll(ListNode head){
+      if(head==null){
+          System.out.println("空的链表.....");
+          return;
+      }
       ListNode tmp=head;
       while (tmp!=null){
           System.out.println(tmp.val);
@@ -70,23 +74,41 @@ public class Solution {
 
   }
 
+
+  // -1 4 5 1 1 2 1
+
+
+  //删除链表里面所有指定值的元素，比如
+    // 1 2 6 3 4 5 6 删除后就是 3 6 5
+    // 1 , 1
+    //一般
   private void delete1(int val){
 
-      if(head.val==val){
-          head=head.next;
-          return;
+      //采用一个虚拟的头节点
+      ListNode fakeHead=new ListNode(-1);
+
+      //它的下一个节点是head
+      fakeHead.next=head;
+      //head作为当前节点
+      ListNode curr=head;
+      //设置虚拟节点为上一个节点
+      ListNode prev=fakeHead;
+
+      while(curr!=null) {
+          //如果当前的值等于要删除的值
+          if (curr.val == val) {
+              //把虚拟头节点的next指为当前的下一个,不切换引用继续循环
+              prev.next = curr.next;
+          } else {
+              //否则就把虚拟头节点指向下一个节点，代表前面的值没有要删除的
+              prev=prev.next;
+          }
+          //切换当前节点的引用为下一个
+          curr=curr.next;
       }
 
-      ListNode tmp=head;
-      ListNode prev=null;
-      while (tmp!=null){
-          prev=tmp;
-          tmp=tmp.next;
-          if(tmp.val==val){
-              prev.next=tmp.next;
-              return;
-          }
-      }
+      head=fakeHead.next;
+
 
   }
 
@@ -236,7 +258,25 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(hasCycle(null));
+//        System.out.println(hasCycle(null));
+
+        Solution solution=new Solution();
+
+        solution.add(1);
+        solution.add(2);
+        solution.add(1);
+        solution.add(2);
+        solution.add(1);
+        solution.add(1);
+        solution.add(4);
+        solution.add(5);
+        solution.add(1);
+
+        solution.delete1(1);
+
+
+        showAll(solution.head);
+
     }
 
 
