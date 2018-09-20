@@ -6,7 +6,13 @@ package class_loader;
 public class ClassLoaderTest {
 
     public static void main(String[] args) {
+//        https://blog.csdn.net/briblue/article/details/54973413
 
+        showClassLoaderPath();
+
+
+    }
+    public static void showClassLoaderForeachPath(){
 
         System.out.println();
         //BoostrapClassLoader
@@ -23,12 +29,27 @@ public class ClassLoaderTest {
         }
 
 
+
+
         System.out.println("===================");
         //AppClassLoader
         String[] split2=System.getProperty("java.class.path").split(":");
         for(String data:split2){
             System.out.println(data);
         }
+
+        System.out.println("================");
+    }
+
+    public static  void showClassLoaderPath(){
+
+        System.out.println(ClassLoaderTest.class.getClassLoader());
+        System.out.println(ClassLoaderTest.class.getClassLoader().getParent());
+        System.out.println(ClassLoaderTest.class.getClassLoader().getParent().getParent());
+//        System.out.println(ClassLoaderTest.class.getClassLoader().getParent().getParent().getParent());
+        System.out.println("------------------------------------");
+        System.out.println(int.class.getClassLoader());
+        System.out.println(String.class.getClassLoader());
 
     }
 }
