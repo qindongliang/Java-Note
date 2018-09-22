@@ -22,23 +22,23 @@ public class DiskClassLoader extends ClassLoader {
 
         String path="src/main/resources/class/Demo.class";
         DiskClassLoader diskClassLoader=new DiskClassLoader(path);
-       diskClassLoader.test1(diskClassLoader);
-
-//        diskClassLoader.test2(diskClassLoader);
+        diskClassLoader.test1();// 以loadClass方式获取实例
+        System.out.println("=============================");
+        diskClassLoader.test2();// 以反射方式获取实例
 
     }
 
 
-    public  void test1(DiskClassLoader diskClassLoader) throws  Exception{
-        Class c= diskClassLoader.loadClass(path);
+    public  void test1() throws  Exception{
+        Class c= this.loadClass(path);
         Object obj=c.newInstance();
         Method method=c.getDeclaredMethod("say",null);
         method.invoke(obj,null);
     }
 
 
-    public  void test2(DiskClassLoader diskClassLoader) throws Exception {
-        Class<?> c = Class.forName("Demo", true, diskClassLoader);
+    public  void test2() throws Exception {
+        Class<?> c = Class.forName("Demo", true, this);
         Object obj = c.newInstance();
         Method method=c.getDeclaredMethod("say",null);
         method.invoke(obj,null);
