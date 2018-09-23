@@ -5,8 +5,38 @@ package basic;
  */
 public class ReturnTest {
 
+    static {
+
+        System.out.println("静态块初始化.....  ");
+
+    }
+    public  String name=getNameValue();
+    public static int count=getValue();
 
 
+
+    {
+        System.out.println("构造块会执行吗.....");
+    }
+
+    public String getNameValue(){
+        System.out.println("成员变量初始化赋值");
+        return "实例初始化赋值";
+    }
+
+    public static int  getValue(){
+        System.out.println("静态变量初始化赋值");
+        return  6;
+    }
+
+
+
+
+
+    public ReturnTest(){
+
+        System.out.println(" 被初始化了...... ");
+    }
 
 
 
@@ -54,7 +84,7 @@ public class ReturnTest {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
 
 
 //        System.out.println( case1() );
@@ -66,8 +96,13 @@ public class ReturnTest {
 //          test1();
 
 
-        System.out.println(getInc());
-        System.out.println(getInc());
+//        System.out.println(getInc());
+//        System.out.println(getInc());
+
+
+
+
+
 
     }
 
