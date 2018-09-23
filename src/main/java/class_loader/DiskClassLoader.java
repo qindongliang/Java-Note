@@ -38,10 +38,11 @@ public class DiskClassLoader extends ClassLoader {
 
 
     public  void test2() throws Exception {
-        Class<?> c = Class.forName("Demo", true, this);
+        Class<?> c = Class.forName("Demo",false,this);
         Object obj = c.newInstance();
         Method method=c.getDeclaredMethod("say",null);
         method.invoke(obj,null);
+
     }
 
 
