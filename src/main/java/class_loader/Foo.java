@@ -60,11 +60,13 @@ class Too extends Foo{
     static {
         System.out.println("子类静态块");
     }
-    {
-        System.out.println("子类构造块");
-    }
+
     public Too() {
 
         System.out.println("子类构造函数");
+    }
+
+    {
+        System.out.println("子类构造块");
     }
 }
