@@ -18,6 +18,11 @@ public class DiskClassLoader extends ClassLoader {
         this.path = path;
     }
 
+    static {
+
+        System.out.println("触发静态初始化.....");
+    }
+
     public static void main(String[] args) throws Exception, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
         String path="src/main/resources/class/Demo.class";

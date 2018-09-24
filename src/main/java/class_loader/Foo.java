@@ -61,6 +61,11 @@ class Too extends Foo{
         System.out.println("子类静态块");
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
+
     public Too() {
 
         System.out.println("子类构造函数");

@@ -9,6 +9,7 @@ public class ClassLoaderTest {
 //        https://blog.csdn.net/briblue/article/details/54973413
 
         showClassLoaderPath();
+//        showClassLoaderForeachPath();
 
 
     }
@@ -46,10 +47,9 @@ public class ClassLoaderTest {
         System.out.println(ClassLoaderTest.class.getClassLoader());
         System.out.println(ClassLoaderTest.class.getClassLoader().getParent());
         System.out.println(ClassLoaderTest.class.getClassLoader().getParent().getParent());
-//        System.out.println(ClassLoaderTest.class.getClassLoader().getParent().getParent().getParent());
         System.out.println("------------------------------------");
         System.out.println(int.class.getClassLoader());
-        System.out.println(String.class.getClassLoader());
+        System.out.println(Long.class.getClassLoader());
 
     }
 }
