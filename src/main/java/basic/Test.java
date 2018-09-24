@@ -12,7 +12,7 @@ public class Test {
 
 
         //关闭类的初始化
-        Class c1= Class.forName("basic.ReturnTest",false,ReturnTest.class.getClassLoader());
+        Class c1= Class.forName("basic.ReturnTest",true,ReturnTest.class.getClassLoader());
 //        c1.newInstance();//实例初始化
     }
 
