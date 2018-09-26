@@ -8,6 +8,5 @@ public class ExceptionTest {
         Class.forName("oracle.jdbc.driver.OracleDriver");
 
 
-
     }
 }
