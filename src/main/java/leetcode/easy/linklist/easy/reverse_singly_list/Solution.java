@@ -1,6 +1,7 @@
 package leetcode.easy.linklist.easy.reverse_singly_list;
 
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by qindongliang on 2018/8/26.
@@ -260,24 +261,68 @@ public class Solution {
     public static void main(String[] args) {
 //        System.out.println(hasCycle(null));
 
+//        Solution solution=new Solution();
+
+//        solution.add(1);
+//        solution.add(2);
+//        solution.add(1);
+//        solution.add(2);
+//        solution.add(1);
+//        solution.add(1);
+//        solution.add(4);
+//        solution.add(5);
+//        solution.add(1);
+
+//        solution.delete1(1);
+
+
+//        showAll(solution.head);
+
+//        System.out.println(solution.isPalindrome());
         Solution solution=new Solution();
 
         solution.add(1);
         solution.add(2);
-        solution.add(1);
-        solution.add(2);
-        solution.add(1);
-        solution.add(1);
-        solution.add(4);
-        solution.add(5);
-        solution.add(1);
-
-        solution.delete1(1);
 
 
-        showAll(solution.head);
 
+        System.out.println(solution.isPalindrome());
     }
+
+
+
+    public boolean isPalindrome(){
+
+        ListNode solw=head;
+
+        ListNode fast=head;
+
+        while (fast!=null&&fast.next!=null){
+            solw=solw.next;
+            fast=fast.next.next;
+        }
+
+        if(fast!=null){
+            solw=solw.next;
+        }
+
+        solw=reverse(solw);//反转剩下的部分
+        fast=head;
+
+        while (solw!=null){
+            if(fast.val!=solw.val){
+                return false;
+            }
+            fast=fast.next;
+            solw=solw.next;
+        }
+
+
+
+        return true;
+    }
+
+
 
 
 
