@@ -1,4 +1,4 @@
-package proxy;
+package proxy.jdk_dynamic_proxy;
 
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
@@ -42,12 +42,14 @@ public class CountTimeProxyTest {
     }
 
 
+
+
     public static void main(String[] args) throws Exception {
 
 
 //        testList();
-//        testMap();
-        testString();
+        testMap();
+//        testString();
 
 
 

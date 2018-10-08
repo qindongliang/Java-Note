@@ -1,4 +1,4 @@
-package proxy;
+package proxy.jdk_dynamic_proxy;
 
 import sun.misc.ProxyGenerator;
 
@@ -11,7 +11,7 @@ import java.io.IOException;
 public class SaveClassToDisk {
 
 
-    private static void save(String className, Class<?> cl, String path){
+    public static void save(String className, Class<?> cl, String path){
             //用于生产代理对象的字节码
             byte[] classFile = ProxyGenerator.generateProxyClass(className, cl.getInterfaces());
             FileOutputStream out = null;

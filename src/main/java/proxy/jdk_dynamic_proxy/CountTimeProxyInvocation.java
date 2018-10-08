@@ -1,34 +1,23 @@
-package proxy;
+package proxy.jdk_dynamic_proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CountTimeProxyInvocation implements InvocationHandler {
 
-    private final Map<String,Method>  ms=new HashMap<>();
-
     private Object target;
-
 
     public CountTimeProxyInvocation(Object target) {
         this.target = target;
-
-        for(Method method:target.getClass().getDeclaredMethods()){
-            String name=method.getName();
-//            System.out.println(name);
-            ms.put(name,method);
-        }
-
     }
 
-    @Override
+
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 //        System.out.println(proxy+"  "+method+" "+ args.toString());
-//        System.out.println(proxy);
-        System.out.println(method+"  "+Arrays.toString(args));
+        System.out.println("name："+proxy.getClass().getName());
+        SaveClassToDisk.save(proxy.getClass().getName(),proxy.getClass(),"G:/$Proxy0.class");
+        System.out.println(method+"  "+Arrays.toString(args));//传入的参数类型
         long start=System.nanoTime();
         System.out.println("调用之前.......");
 //        Object result=ms.get(method.getName()).invoke(target,args);
