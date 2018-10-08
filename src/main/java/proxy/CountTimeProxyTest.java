@@ -11,7 +11,7 @@ public class CountTimeProxyTest {
     private static void testMap(){
         Map map= (Map) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
                 new Class[]{Map.class},
-                new CountTimeProxy(new HashMap())
+                new CountTimeProxyInvocation(new HashMap())
         );
 
         map.put("t",12);
@@ -23,7 +23,7 @@ public class CountTimeProxyTest {
 
         List list= (List) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
                 new Class[]{List.class}, //必须是接口才行
-                new CountTimeProxy(new ArrayList<>())
+                new CountTimeProxyInvocation(new ArrayList<>())
         );
 
         list.add("1");
@@ -35,7 +35,7 @@ public class CountTimeProxyTest {
 
         CharSequence str= (CharSequence) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
                 new Class[]{CharSequence.class}, //必须是接口才行
-                new CountTimeProxy(new String())
+                new CountTimeProxyInvocation(new String())
         );
 
         str.length();

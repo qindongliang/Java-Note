@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CountTimeProxy implements InvocationHandler {
+public class CountTimeProxyInvocation implements InvocationHandler {
 
     private final Map<String,Method>  ms=new HashMap<>();
 
     private Object target;
 
 
-    public CountTimeProxy(Object target) {
+    public CountTimeProxyInvocation(Object target) {
         this.target = target;
 
         for(Method method:target.getClass().getDeclaredMethods()){
