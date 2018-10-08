@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CountTimeProxyTest {
+public class TestCountTimeProxy {
 
     private static void testMap(){
-        Map map= (Map) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
-                new Class[]{Map.class},
+        Map map= (Map) Proxy.newProxyInstance(TestCountTimeProxy.class.getClassLoader(),
+                new Class[]{Map.class},//必须接口类型，可以有多个接口
                 new CountTimeProxyInvocation(new HashMap())
         );
 
@@ -21,7 +21,7 @@ public class CountTimeProxyTest {
 
     private static void testList(){
 
-        List list= (List) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
+        List list= (List) Proxy.newProxyInstance(TestCountTimeProxy.class.getClassLoader(),
                 new Class[]{List.class}, //必须是接口才行
                 new CountTimeProxyInvocation(new ArrayList<>())
         );
@@ -33,7 +33,7 @@ public class CountTimeProxyTest {
 
     private static void testString(){
 
-        CharSequence str= (CharSequence) Proxy.newProxyInstance(CountTimeProxyTest.class.getClassLoader(),
+        CharSequence str= (CharSequence) Proxy.newProxyInstance(TestCountTimeProxy.class.getClassLoader(),
                 new Class[]{CharSequence.class}, //必须是接口才行
                 new CountTimeProxyInvocation(new String())
         );
