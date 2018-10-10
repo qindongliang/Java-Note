@@ -1,4 +1,4 @@
-package sort_algorithm;
+package sort_algorithm.count_sort;
 
 import java.util.Arrays;
 
@@ -8,11 +8,12 @@ import java.util.Arrays;
  *
  * 时间复杂度O（n+k） n=数组元素的个数，k=元素里面的最大的值
  *
+ * 最简单的计数排序
  *
  *
  */
 
-public class CountingSort {
+public class SimpleCountingSort {
 
 
     public static void countSort(){
