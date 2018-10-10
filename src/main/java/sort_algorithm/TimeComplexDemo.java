@@ -1,4 +1,4 @@
-package algorithm;
+package sort_algorithm;
 
 /**
  * Created by qindongliang on 2018/9/8.
