@@ -17,7 +17,7 @@ public class CountingSort {
 
     public static void countSort(){
 
-        int array[]={-1,-3,0,0,9,5,4};
+        int array[]={2,0,-1};
 
         int max=array[0];
         int min=array[0];
@@ -36,14 +36,14 @@ public class CountingSort {
 
         int []count=new int[max-min+1];
 
-        for (int number:array){
-            count[number-min]++;
+        //每个数减去最小的数可以支持负数变成正数，并计数词频，
+        for (int i:array){
+            count[i-min]++;
         }
 
         int z=0;
-
+        //遍历计数词频的数组，判断指定位置上词频是否大于0，然后重新映射原始数组
         for (int i = min; i <=max ; i++) {
-
             while (count[i-min]>0){
                 array[z]=i;
                 z++;
