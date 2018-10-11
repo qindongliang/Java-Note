@@ -62,8 +62,9 @@ public class SimpleCountingSort {
     public static void main(String[] args) {
 
 
-        countSort();
+//        countSort();
 
+        simpleCountSort();
 
 
 
@@ -74,29 +75,24 @@ public class SimpleCountingSort {
 
 
 
-    public static void  test1(){
-        int nums[]={1,2,1,0,1};
+    public static void  simpleCountSort(){
+        int nums[]={2,1,0,1};
 
         int maxNum=2;
 
         int storeArray[]=new int[maxNum+1];
-
 
         //词频计数
         for(int i=0;i<nums.length;i++){
             storeArray[nums[i]]++;
         }
 
-        System.out.println(Arrays.toString(nums));
-
-        System.out.println(Arrays.toString(storeArray));
-
         System.out.println("==============排序后==============");
 
         int ndx=0;
         //遍历计数后的词频数组
         for (int i = 0; i <storeArray.length ; i++) {
-            //进行回放，大于0说明这个数字出现过
+            //对于每个index的值进行循环，输出，因为有可能重复
             while (storeArray[i]>0){
                 nums[ndx]=i;//把词频数组的值，放回原数组里面，
                 ndx++;//替换一个数，就索引自增
