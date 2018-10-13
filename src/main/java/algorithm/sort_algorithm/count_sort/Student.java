@@ -1,4 +1,4 @@
-package sort_algorithm.count_sort;
+package algorithm.sort_algorithm.count_sort;
 
 public class Student {
 
