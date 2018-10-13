@@ -11,11 +11,19 @@ public class FactorialRecursion {
 
     public static int factrial(int n){
         if(n<1){
+            return 1;
+        }
+        return  n*factrial(n-1);
+
+    }
+
+    public static int factrialDetail(int n){
+        if(n<1){
             System.out.println("拆解问题完毕，开始分而治之");
             return 1;
         }
         System.out.println("f("+n+")="+n+" * f("+(n-1)+")");
-        int z= n*factrial(n-1);
+        int z= n*factrialDetail(n-1);
 
         System.out.println("f("+n+")="+z);
 
@@ -25,9 +33,11 @@ public class FactorialRecursion {
 
 
 
+
+
     public static void main(String[] args) {
 
-        System.out.println(factrial(5));
+         factrialDetail(5);
 
     }
 }
