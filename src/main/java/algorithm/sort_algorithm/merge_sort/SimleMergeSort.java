@@ -20,26 +20,27 @@ public class SimleMergeSort {
         //临时数组存放交换排序结果
         int []tmp=new int[end-start+1];
 
-        //2个数据的处理情况
+        //基于mid中间点的位置，开始合并两个有序数组
         while (first<=mid&&last<=end){
-            //小的放前面
             if(arr[first]<arr[last]){
-                tmp[i++]=arr[first++];
+                tmp[i++]=arr[first++];//左边的数据小
             }else{
-                tmp[i++]=arr[last++];
+                tmp[i++]=arr[last++];//右边的数据小
             }
         }
 
-        // 左边仅仅有一个元素的处理情况
+        // 第一个while执行过之后，如果符合下面这个
+        //条件就说明，左边的数组元素还有剩余，现在把剩下的全部拷贝到新的有序数组
         while (first<=mid){
             tmp[i++]=arr[first++];
         }
-        // 右边仅仅有一个元素的处理情况
+        // 第一个while执行过之后，如果符合下面这个
+        //条件就说明，右边的数组元素还有剩余，现在把剩下的全部拷贝到新的有序数组
         while (last<=end){
             tmp[i++]=arr[last++];
         }
 
-        //新排序好的数据归位到，原始数据里面
+        //新排序好的数据归位到，原始数组对应的位置里面
         int k=0;
         while (start<=end){
             arr[start++]=tmp[k++];
