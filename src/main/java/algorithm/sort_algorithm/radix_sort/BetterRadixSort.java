@@ -42,7 +42,7 @@ public class BetterRadixSort {
             for (int i = a.length-1; i>=0 ; i--) {
                 //得到每个数字在bucket数组里面的位置
                 int pos=a[i]/exp%radix;
-                //得到其的便宜量
+                //得到其的偏移量
                 int offset=radixArr[pos];
                 output[offset-1]=a[i];//存放其位置
                 radixArr[pos]--;//基数自减
