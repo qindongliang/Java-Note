@@ -16,10 +16,10 @@ public class TestDestroySingleton {
 
 
 //        reflectDestory();
-//        serializableDestory();
+        serializableDestroy();
 //          cloneDestory();
 
-        classLoaderDestroy();
+//        classLoaderDestroy();
     }
 
     /***
@@ -72,9 +72,7 @@ public class TestDestroySingleton {
             out.close();
 
             // deserailize from file to object
-            ObjectInput in
-                    = new ObjectInputStream(new FileInputStream("file.text"));
-
+            ObjectInput in = new ObjectInputStream(new FileInputStream("file.text"));
             Singleton instance2 = (Singleton) in.readObject();
             in.close();
 
