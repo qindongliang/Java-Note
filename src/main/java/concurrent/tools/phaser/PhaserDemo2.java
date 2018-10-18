@@ -1,6 +1,5 @@
 package concurrent.tools.phaser;
 
-import sun.dc.pr.PRError;
 
 import java.util.concurrent.Phaser;
 

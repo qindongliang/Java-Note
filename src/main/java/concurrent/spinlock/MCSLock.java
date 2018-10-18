@@ -86,10 +86,10 @@ public class MCSLock {
 
     public static void main(String[] args) {
 
-        MCSLock lock=new MCSLock();
+       final MCSLock lock=new MCSLock();
 
         Runnable runnable=new Runnable() {
-            @Override
+
             public void run() {
                 try {
                     lock.lock();
