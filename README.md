@@ -1,5 +1,5 @@
 # Java-Note
-Java相关的学习笔记
+Java相关的知识笔记
 
 ### 介绍
 
@@ -63,7 +63,7 @@ Java并发知识全类图
 
 ### 数据结构与算法
 
-https://github.com/qindongliang/Java-Note/tree/master/src/main/java/leetcode
+https://github.com/qindongliang/ARTS
 
 
 
