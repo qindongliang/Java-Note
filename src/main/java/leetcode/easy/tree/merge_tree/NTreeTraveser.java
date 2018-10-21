@@ -41,10 +41,12 @@ public class NTreeTraveser {
 
         //recursion(node1);//递归实现
 
-        iteratively(node1);//迭代实现
+        //iteratively(node1);//迭代实现（前序）[1, 3, 5, 6, 2, 4]
 
 
+       // iteratively2(node1);//迭代实现（后序）[5, 6, 3, 2, 4, 1]
 
+        recursion2(node1);
 
 
 
@@ -82,6 +84,49 @@ public class NTreeTraveser {
             }
         }
 
+        System.out.println(list);
+        return list;
+
+
+    }
+
+
+    public static  void recursion2(Node root){
+
+        if(root==null) return;
+        if(root.children!=null) {
+            for (Node chd : root.children) {
+                recursion2(chd);
+                System.out.println(chd.val);
+            }
+        }
+
+
+
+    }
+
+
+    public static   List<Integer> iteratively2(Node root){
+
+        List<Integer> list=new ArrayList<>();
+
+        if(root==null) return list;
+
+        //使用stack来保存数据
+        Stack<Node> stack=new Stack<>();
+        stack.add(root);
+
+        while(!stack.empty()){
+            root=stack.pop();
+            list.add(root.val);
+
+            if(root.children!=null){
+                for (Node chd:root.children) {
+                    stack.add(chd);
+                }
+            }
+        }
+        Collections.reverse(list);
         System.out.println(list);
         return list;
 
