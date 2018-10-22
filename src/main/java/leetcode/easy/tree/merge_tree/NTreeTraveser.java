@@ -50,6 +50,7 @@ public class NTreeTraveser {
 
 
 
+
     }
 
     public  static void recursion(Node root){
@@ -91,17 +92,20 @@ public class NTreeTraveser {
     }
 
 
+    /***
+     * 从底上下递归输出
+     * @param root
+     */
     public static  void recursion2(Node root){
 
         if(root==null) return;
         if(root.children!=null) {
             for (Node chd : root.children) {
                 recursion2(chd);
-                System.out.println(chd.val);
             }
         }
 
-
+        System.out.println(root.val);
 
     }
 
