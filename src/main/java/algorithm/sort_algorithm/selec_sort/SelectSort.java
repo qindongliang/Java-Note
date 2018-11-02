@@ -12,7 +12,7 @@ import java.util.Arrays;
  *
  * 平均时间复杂度：О(n²)
  * 平均空间复杂度：O(1)
- * 是否稳定：是稳定排序算法
+ * 是否稳定：不是稳定排序算法
  *
  */
 public class SelectSort {
