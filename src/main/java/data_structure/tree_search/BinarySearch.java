@@ -1,12 +1,14 @@
-package data_structure.deep_first_search;
+package data_structure.tree_search;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
  * 深度优先搜索
  * Created by qindongliang on 2018/11/3.
  */
-public class DeepFirstSearch {
+public class BinarySearch {
 
     static TreeNode<String> root=new TreeNode<>(50,"A");
 
@@ -36,7 +38,8 @@ public class DeepFirstSearch {
          */
     }
 
-    public static void maxDepth(TreeNode root){
+    //深度优先搜索 的 迭代版本的统计
+    public static void dfsMaxDepth(TreeNode root){
 
         if(root==null){
             System.out.println("深度=0");
@@ -82,9 +85,71 @@ public class DeepFirstSearch {
 
     }
 
+
+
+
+    //递归版本的统计
+    public static int recursionMaxDeepLength(TreeNode root){
+        if(root==null) return 0;
+       int leftLen= recursionMaxDeepLength(root.leftChild)+1;//左子树统计
+       int rightLen= recursionMaxDeepLength(root.rightChild)+1;//右子树统计
+       return Math.max(leftLen,rightLen);
+
+    }
+
+    public static void bfsMaxDepth(TreeNode root){
+
+        if(root==null){
+            System.out.println("root is null");
+        }
+
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        int count=0;
+
+        while (!queue.isEmpty()){
+
+            int size=queue.size();
+
+            while (size>0){
+
+                TreeNode node=queue.poll();// remove the head of this queue
+
+                if(node.leftChild!=null){
+                    queue.offer(node.leftChild);
+                }
+
+                if(node.rightChild!=null){
+                    queue.offer(node.rightChild);
+                }
+
+
+                size=size-1;
+            }
+
+            count=count+1;
+
+        }
+
+
+        System.out.println("bfs-max-depth: "+count);
+
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
-        maxDepth(root);
+       // dfsMaxDepth(root);//深度优先搜索的迭代版本
+        bfsMaxDepth(root);//广度优先搜索的迭代版本
+
+
+      //  System.out.println( recursionMaxDeepLength(root));//递归版本
+
+
+
 
     }
 
