@@ -46,12 +46,33 @@ public class NTreeTraveser {
 
        // iteratively2(node1);//迭代实现（后序）[5, 6, 3, 2, 4, 1]
 
-        recursion2(node1);
+//        recursion2(node1);
 
+        System.out.println((recursionMaxDeepLength(node1)));//递归读取最大深度
 
 
 
     }
+
+    // 559
+    public  static int recursionMaxDeepLength(Node root){
+
+        if(root==null) {return 0;}
+
+        int tmp=1;
+
+        if(root.children!=null) {
+            for (Node child : root.children) {
+                if (child != null) {
+                    tmp = Math.max(tmp, recursionMaxDeepLength(child) + 1);
+                }
+            }
+        }
+
+        return tmp;
+
+    }
+
 
     public  static void recursion(Node root){
         System.out.println(root.val);
