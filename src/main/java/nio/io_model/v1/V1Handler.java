@@ -31,7 +31,10 @@ public class V1Handler implements Runnable {
             String body=null;
             while (true){
                 body=in.readLine();
-                if(body==null||body.length()==0) break;
+                if(body==null||body.length()==0) {
+                    System.out.println("exit socket");
+                    break;
+                }
                 System.out.println("receive data: "+body);
                 currentTime="java".equals(body)?new DateTime().toString("yyyy-MM-dd HH:mm:ss.SSS"):"no ok";
                 out.println(currentTime);
