@@ -1,4 +1,4 @@
-package nio.io_model.v1;
+package io.io_model.v1_bio;
 
 import org.joda.time.DateTime;
 
@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 /**

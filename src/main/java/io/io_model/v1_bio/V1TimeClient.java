@@ -1,4 +1,4 @@
-package nio.io_model.v1;
+package io.io_model.v1_bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
