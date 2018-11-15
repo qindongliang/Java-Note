@@ -10,8 +10,8 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.concurrent.TimeUnit;
 
-/** https://gist.github.com/rostyslav
- * Created by qindongliang on 2018/11/14.
+/** reference document => https://gist.github.com/rostyslav
+ *  Created by qindongliang on 2018/11/14.
  */
 public class MultiplexClient  {
 
