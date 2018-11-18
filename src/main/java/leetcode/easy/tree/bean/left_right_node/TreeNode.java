@@ -8,7 +8,9 @@ public class TreeNode {
       public TreeNode(int x) { val = x; }
 
 
-      public TreeNode getNodeData(){
+      public static TreeNode getRoot(){
+//          https://leetcode.com/problems/leaf-similar-trees/
+
 
           TreeNode node3=new TreeNode(3);
           TreeNode node5=new TreeNode(5);
