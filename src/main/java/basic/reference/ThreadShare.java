@@ -9,7 +9,9 @@ public class ThreadShare {
 
     public int count=0;
 
-    public Cat cat;
+    public Cat cat1;
+
+    public Cat cat2=new Cat();
 
     static class Cat{
 
@@ -25,12 +27,13 @@ public class ThreadShare {
 
 
         Thread printThread=new Thread(new PrintThread(share));
-
+        printThread.setName("打印线程");
         printThread.start();
 
         Thread.sleep(1000);
 
         Thread updateThread=new Thread(new UpdateThread(share));
+        updateThread.setName("更新线程");
 
         updateThread.start();
 
@@ -57,10 +60,13 @@ public class ThreadShare {
 
         @Override
         public void run() {
+            System.out.println(Thread.currentThread().getName()+" 修改成员变量的值......");
             threadShare.text="update";
             threadShare.count=10;
 //            threadShare.cat.name="i am tom";
-            threadShare.cat=new Cat();
+            threadShare.cat1=new Cat();
+            threadShare.cat2.name="cat2";
+
         }
     }
 
@@ -76,21 +82,22 @@ public class ThreadShare {
         @Override
         public void run() {
 
+            String threadName=Thread.currentThread().getName();
             String text=threadShare.text;
             int count=threadShare.count;
-            Cat cat=threadShare.cat;
+            Cat cat1=threadShare.cat1;
+            Cat cat2=threadShare.cat2;
 
-//            System.out.println("local变量访问： "+text+" "+count+"  "+cat.name);
-            System.out.println("local变量访问： "+text+" "+count+"  "+cat);
-            System.out.println("实例访问 "+threadShare.text+"   "+threadShare.count+"   "+threadShare.cat);
+            System.out.println(threadName+"  初始值 "+text+" "+count+"  "+cat1+" "+cat2.name);
+            System.out.println();
             try {
                 TimeUnit.SECONDS.sleep(4);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("=======================");
-            System.out.println("local变量访问： "+text+" "+count+"  "+cat);
-            System.out.println("实例访问 "+threadShare.text+"   "+threadShare.count+"   "+threadShare.cat);
+            System.out.println();
+            System.out.println(threadName+"局部变量show： "+text+" "+count+"  "+cat1+"  "+cat2.name);
+            System.out.println(threadName+"成员变量show： "+threadShare.text+"   "+threadShare.count+"   "+threadShare.cat1+" "+cat2.name);
 
         }
     }
@@ -134,3 +141,5 @@ public class ThreadShare {
 
 
 }
+
+
