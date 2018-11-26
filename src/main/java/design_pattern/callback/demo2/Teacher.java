@@ -9,7 +9,7 @@ public class Teacher implements CallBack {
     }
 
     /***
-     *
+     *  给学生分配作业
      * @param isSync true=同步回调 false=异步回调
      * @throws InterruptedException
      */
@@ -25,7 +25,7 @@ public class Teacher implements CallBack {
 
 
     @Override
-    public void finshed() {
+    public void checkWork() {
         System.out.println("老师收到通知并查看了学生的作业!");
     }
 }

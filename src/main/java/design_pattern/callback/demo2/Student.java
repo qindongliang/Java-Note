@@ -9,11 +9,12 @@ public class Student  {
         System.out.println("学生开始做作业.....");
         TimeUnit.SECONDS.sleep(3);
         System.out.println("学生完成作业了，通知老师查看");
-        callBack.finshed();
+        callBack.checkWork(); //通知老师查看作业
     }
 
 
     public void asynDoWrok(CallBack callBack) throws InterruptedException {
+     //通过一个线程来异步的执行任务
      Runnable runnable= new Runnable(){
             @Override
             public void run() {
@@ -24,7 +25,7 @@ public class Student  {
                     e.printStackTrace();
                 }
                 System.out.println("学生完成作业了，通知老师查看");
-                callBack.finshed();
+                callBack.checkWork();
             }
         };
 
