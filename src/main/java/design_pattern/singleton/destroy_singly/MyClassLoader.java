@@ -1,4 +1,4 @@
-package singleton.destroy_singly;
+package design_pattern.singleton.destroy_singly;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -21,7 +21,7 @@ public class MyClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) {
          byte[] bytes=getClassBytes();
-         String className="singleton."+getClassName(classFilePath);
+         String className="design_pattern.singleton."+getClassName(classFilePath);
         return defineClass(className,bytes,0,bytes.length);
     }
 

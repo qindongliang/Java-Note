@@ -1,4 +1,4 @@
-package singleton.create;
+package design_pattern.singleton.create;
 
 /**
  * Created by qindongliang on 2018/7/5.

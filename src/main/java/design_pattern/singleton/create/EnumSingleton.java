@@ -1,4 +1,4 @@
-package singleton.create;
+package design_pattern.singleton.create;
 
 import java.io.*;
 

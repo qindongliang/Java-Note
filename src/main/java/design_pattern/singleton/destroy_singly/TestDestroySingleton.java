@@ -1,4 +1,4 @@
-package singleton.destroy_singly;
+package design_pattern.singleton.destroy_singly;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
