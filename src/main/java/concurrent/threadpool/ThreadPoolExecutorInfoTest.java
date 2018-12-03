@@ -11,25 +11,26 @@ public class ThreadPoolExecutorInfoTest {
 
 
 
-        ThreadPoolExecutor pool= (ThreadPoolExecutor)Executors.newFixedThreadPool(3);
+        ThreadPoolExecutor pool= (ThreadPoolExecutor)Executors.newFixedThreadPool(5);
+        pool.prestartAllCoreThreads();
 
        Runnable run= new Runnable() {
             @Override
             public void run() {
 
-//                try {
-//                    TimeUnit.SECONDS.sleep(3);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         };
 
-        pool.submit(run);
-        pool.submit(run);
-        pool.submit(run);
-        pool.submit(run);
-        pool.submit(run);
+//        pool.submit(run);
+//        pool.submit(run);
+//        pool.submit(run);
+//        pool.submit(run);
+//        pool.submit(run);
 
         Thread.sleep(200);
         System.out.println(pool.getActiveCount());//当前正在处理任务的线程数量
@@ -38,8 +39,8 @@ public class ThreadPoolExecutorInfoTest {
         System.out.println(pool.getLargestPoolSize());//得到曾经创建过最大的线程池的数量
         System.out.println(pool.getCompletedTaskCount());//得到已经完成任务的数量
 
-
-        pool.shutdown();
+         Thread.currentThread().join();
+//        pool.shutdown();
 
 
     }
