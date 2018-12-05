@@ -1,4 +1,4 @@
-package concurrent.lock.rwlock;
+package concurrent.common_case;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
