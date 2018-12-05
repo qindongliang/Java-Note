@@ -16,9 +16,14 @@ import java.util.Random;
 public class ReservoirSample {
 
 
+    /***
+     *
+     * @param input 模拟的原始数组
+     * @param k 采样的的个数
+     * @return  返回采样的数据
+     */
     public static int[]  sample(int []input,int k){
         Random random=new Random();
-
         int []ret=new int[k];
 
         for (int i = 0; i <input.length ; i++) {
@@ -33,6 +38,9 @@ public class ReservoirSample {
         }
      return  ret;
     }
+
+
+
 
 
     public static void main(String[] args) {
