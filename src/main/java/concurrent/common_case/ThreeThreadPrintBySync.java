@@ -1,22 +1,21 @@
 package concurrent.common_case;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 public class ThreeThreadPrintBySync {
 
 
      static class PrintABC{
 
          final  Object monitor=new Object();
-         volatile  int count=1;
-         String id="A";
-         int limit=3;
+         volatile  int count=1;//轮次计数，从1开始，为了保证可见性，这里需要用volatile修饰
+         String id="A";//贡献的
+         int printCount ;
 
+         public PrintABC(int printCount) {
+             this.printCount = printCount;
+         }
 
          public void printA() throws InterruptedException {
-             while (count < limit) {
+             while (count < printCount) {
                  synchronized (monitor) {
                      while (!id.equals("A")) {
                          monitor.wait();
@@ -30,7 +29,7 @@ public class ThreeThreadPrintBySync {
          }
 
              public void printB() throws InterruptedException {
-                 while (count < limit) {
+                 while (count < printCount) {
                      synchronized (monitor) {
                          while (!id.equals("B")) {
                              monitor.wait();
@@ -44,7 +43,7 @@ public class ThreeThreadPrintBySync {
              }
 
          public void printC() throws InterruptedException {
-             while (count < limit+1) {
+             while (count < printCount +1) {//最后一次终结线程，需要多加一次
                  synchronized (monitor) {
                      while (!id.equals("C")) {
                          monitor.wait();
@@ -63,10 +62,7 @@ public class ThreeThreadPrintBySync {
 
     public static void main(String[] args) {
 
-
-
-        PrintABC printABC=new PrintABC();
-
+        PrintABC printABC=new PrintABC(3);
 
         Thread t1=new Thread(()->{
             try {
