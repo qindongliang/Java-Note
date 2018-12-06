@@ -4,7 +4,10 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ThreeThreadPrint {
+/***
+ * 基于Lock实现的，三个线程轮流交替分别打印A，B，C，10次
+ */
+public class ThreeThreadPrintByLock {
 
 
      static class PrintABC{
