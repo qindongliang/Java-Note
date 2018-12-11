@@ -17,9 +17,14 @@ public class ThreeThreadPrintByLock {
          Condition conA=lock.newCondition();
          Condition conB=lock.newCondition();
          Condition conC=lock.newCondition();
+         int limit;//最大打印轮数
+         public PrintABC(int limit) {
+             this.limit = limit;
+         }
+
          volatile  int count=1;
          String id="A";
-         int limit=2;
+
 
 
          public void printA() throws InterruptedException {
@@ -89,7 +94,7 @@ public class ThreeThreadPrintByLock {
 
 
 
-        PrintABC printABC=new PrintABC();
+        PrintABC printABC=new PrintABC(3);
 
 
         Thread t1=new Thread(()->{
