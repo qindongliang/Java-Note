@@ -94,7 +94,7 @@ public class ThreeThreadPrintByLock {
 
 
 
-        PrintABC printABC=new PrintABC(3);
+        PrintABC printABC=new PrintABC(5);
 
 
         Thread t1=new Thread(()->{
