@@ -50,9 +50,9 @@ public class ReverseWord2 {
     public static void main(String[] args) {
 
         String input="Let's take LeetCode contest";
-
+        //性能一般
         System.out.println(reverseWords(input));
-
+        //性能好
         System.out.println(reverseWords2(input));
 
 
