@@ -9,14 +9,14 @@ public class ReflectionTest {
     //非反射方式，获取类的内部信息
     public void test1(){
 
-//        Person person=new Person();
-//
-//        Field[] fields = person.getClass().getDeclaredFields();
-//        //Field[] fields = person.getClass().getFields();// 仅仅是public修饰符的
-//
-//        for(Field f:fields){
-//            System.out.println(f);
-//        }
+        Person person=new Person();
+
+        Field[] fields = person.getClass().getDeclaredFields();
+        //Field[] fields = person.getClass().getFields();// 仅仅是public修饰符的
+
+        for(Field f:fields){
+            System.out.println(f);
+        }
 
 
     }
