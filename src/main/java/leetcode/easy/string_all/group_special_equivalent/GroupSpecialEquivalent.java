@@ -23,7 +23,7 @@ public class GroupSpecialEquivalent {
             int [] map2=new int[256];
             for (int i = 0; i < s.length(); i++) {
                 char c=s.charAt(i);
-                System.out.println(c+"  "+ (int)(c) );
+//                System.out.println(c+"  "+ (int)(c) );
                 if(i%2==0){
                     map1[s.charAt(i)]++;
                 }else{
