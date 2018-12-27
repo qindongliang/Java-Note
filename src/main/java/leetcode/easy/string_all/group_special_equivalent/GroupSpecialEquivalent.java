@@ -19,15 +19,15 @@ public class GroupSpecialEquivalent {
     public static int numSpecialEquivGroups(String[] A) {
         Set<String> set=new HashSet<>();
         for(String s:A){
-            int [] map1=new int[256];
-            int [] map2=new int[256];
+            int [] map1=new int[26];
+            int [] map2=new int[26];
             for (int i = 0; i < s.length(); i++) {
                 char c=s.charAt(i);
 //                System.out.println(c+"  "+ (int)(c) );
                 if(i%2==0){
-                    map1[s.charAt(i)]++;
+                    map1[s.charAt(i)-'a']++;
                 }else{
-                    map2[s.charAt(i)]++;
+                    map2[s.charAt(i)-'a']++;
                 }
             }
             int hashCode= (Arrays.toString(map1) + " " + Arrays.toString(map2)).hashCode();
