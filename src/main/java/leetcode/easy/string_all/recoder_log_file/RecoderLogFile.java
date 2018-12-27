@@ -19,14 +19,12 @@ import java.util.PriorityQueue;
 public class RecoderLogFile {
 
 
-    public static void main(String[] args) {
+    public String[] reorderLogFiles(String[] logs) {
 
         //通过优先级队列，来实现排序
         PriorityQueue<String> queue=new PriorityQueue<String>(new LetterComparator());
 
         List<String> digitLogs = new ArrayList();
-
-        String []logs=new String[]{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"};
 
         List<String> results = new ArrayList<String>();
 
@@ -46,8 +44,7 @@ public class RecoderLogFile {
         results.addAll(digitLogs);
 
 
-        System.out.println(results);
-
+       return results.toArray(new String[results.size()]);
 
     }
 
