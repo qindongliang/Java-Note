@@ -24,6 +24,7 @@ public class DemoAssert {
 
         checkName(null);//测试校验
 
+
 //        checkAge(25)//测试范围
 
 
