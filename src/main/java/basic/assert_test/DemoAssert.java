@@ -22,12 +22,9 @@ public class DemoAssert {
 
     public static void main(String[] args) {
 
-        checkName(null);
+        checkName(null);//测试校验
 
-
-//        checkAge(25);
-
-
+//        checkAge(25)
 
 
 
