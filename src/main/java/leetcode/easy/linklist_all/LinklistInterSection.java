@@ -31,24 +31,6 @@ public class LinklistInterSection {
         }
     }
 
-//    public static ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
-//
-//        //boundary check
-//        if(headA == null || headB == null) return null;
-//
-//        ListNode a1=headA;
-//        ListNode a2=headB;
-//
-//
-//    }
-
-    /***
-     *
-     * @param headA
-     * @param headB
-     *
-     * @return
-     */
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
         //boundary check
