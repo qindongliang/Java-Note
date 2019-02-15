@@ -16,7 +16,7 @@ package leetcode.easy.linklist_all;
  * 第一种方法：统计两个链表的长度，长度大的链表先跳过去之前的间隔，然后后面的依次比较引用地址
  *
  * 第二种方法：直接对两个链表进行两两相比，如果next=null，那么则拼接另一个链表到此链表上，继续循环比较，直到两端都比较一遍
- * 最终可得结果
+ * 最终可得结果（ 注意这个方法不会发生死循环的原因是因为退出条件都为null）
  *
  */
 public class LinklistInterSection {
