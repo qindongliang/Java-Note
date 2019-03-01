@@ -7,35 +7,29 @@ package leetcode.easy.string_all;
 public class CountAndSay {
 
 
-
     public static String countAndSay(int n) {
+        if(n==1)
+            return "1";
 
-        String s="1";
-        for (int i = 0; i < n; i++) {
-            s=countIdx(s);
-        }
-        return s;
-    }
-
-    public static String countIdx(String s){
         StringBuilder sb=new StringBuilder();
-        char c=s.charAt(0);
-        int count=1;
-        for (int i = 1; i < s.length(); i++) {
-            if(s.charAt(i)==c){
+
+        //找到n-1的结果
+        String str=countAndSay(n-1);
+
+        //对n-1的结果进行表示
+        char c='0';
+        int count=0;
+        for (int i=0;i<str.length();i++){
+            c=str.charAt(i);
+            count=1;
+            while ((i+1)<str.length()&&str.charAt(i+1)==c){
                 count++;
-            }else {
-                sb.append(count);
-                sb.append(c);
-                c=s.charAt(i);
-                count=1;
+                i++;
             }
+            sb.append(count+""+c);
         }
-        sb.append(count);
-        sb.append(c);
         return sb.toString();
     }
-
 
     public static void main(String[] args) {
         System.out.println(countAndSay(3));
