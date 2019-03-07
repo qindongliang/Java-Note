@@ -5,6 +5,9 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+/***
+ * 实现类似Java里面String.indexOf("ok")，返回ok首次出现下标的位置
+ */
 @RunWith(JUnitParamsRunner.class)
 public class ImplementStr {
     @Test
