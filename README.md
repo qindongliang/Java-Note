@@ -63,6 +63,10 @@ Java并发知识全类图
 
 ### 数据结构与算法
 
+#### 数据结构总结图
+![image](https://github.com/qindongliang/Java-Note/blob/master/src/main/resources/pic/数据类型.png)
+
+#### 每周一练
 https://github.com/qindongliang/ARTS
 
 
