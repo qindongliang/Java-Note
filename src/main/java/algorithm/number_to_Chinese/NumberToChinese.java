@@ -5,8 +5,9 @@ import java.util.Stack;
 
 public class NumberToChinese {
     private static final String[] CHINESE_NUMBERS = {"零", "一", "两", "三", "四", "五", "六", "七", "八", "九", "十"};
-    private static final ChineseUnit[] CHINESE_UNIT = {ChineseUnit.zero, ChineseUnit.ten, ChineseUnit.hundred, ChineseUnit.thousand, ChineseUnit.ten_thousand, ChineseUnit.billion, ChineseUnit.million, ChineseUnit.ten_million,
-            ChineseUnit.hundred_mullion};
+    private static final ChineseUnit[] CHINESE_UNIT = {
+            ChineseUnit.zero, ChineseUnit.ten, ChineseUnit.hundred, ChineseUnit.thousand, ChineseUnit.ten_thousand, ChineseUnit.billion, ChineseUnit.million, ChineseUnit.ten_million,
+            ChineseUnit.hundred_mullion,ChineseUnit.ten_billon,ChineseUnit.hundred_billon,ChineseUnit.thousand_billon,ChineseUnit.ten_thousand_billon};
 
     private static class BeanUnit{
         private ChineseUnit chineseUnit;
@@ -41,11 +42,11 @@ public class NumberToChinese {
     }
 
 
-    private static String numberToChinese(int value){
+    private static String numberToChinese(long value){
 
         String strValue=String.valueOf(value);
         if(value<=10){
-            return CHINESE_NUMBERS[value];
+            return CHINESE_NUMBERS[(int)value];
         }
 
 
@@ -81,29 +82,19 @@ public class NumberToChinese {
 
 
             } else if (bean.chineseUnit != ChineseUnit.zero) {
-                if(onceOnly) {
-                    switch (bean.chineseUnit) {
-                        case ten_thousand:
-                        case billion:
-                        case million:
-                        case ten_million:
-                            if (sb.indexOf("万") == -1) {
-                                sb.append("万");
-                            }
-                            onceOnly=false;
-                            break;
-                    }
-                }
 
-//                if (nextNumber != null && nextNumber.orginNum != 0) {
-//                    sb.append(bean.strNum);
-//                }'
-                if(nextNumber!=null&&nextNumber.orginNum != 0&&!nextNumber.strNum.equals("零")) {
+                if(nextNumber!=null&&nextNumber.orginNum != 0) {
                     sb.append(bean.strNum);
                 }
             }
         }
 
+
+        String filters[]=new String[]{"亿","万"};
+        for (String filter:filters )
+        while (sb.indexOf(filter)!=sb.lastIndexOf(filter)){
+                sb.deleteCharAt(sb.indexOf(filter));
+        }
 
 
 
@@ -121,6 +112,10 @@ public class NumberToChinese {
         System.out.println(numberToChinese(1030000));
 //        System.out.println(numberToChinese(301000010));
 //        System.out.println(numberToChinese(200003));
+//        System.out.println(numberToChinese(100029338));
+//        System.out.println(numberToChinese(100209));
+        System.out.println(numberToChinese(3000000008L));
+
 
 
 
@@ -136,11 +131,14 @@ public class NumberToChinese {
         hundred("百"),
         thousand("千"),
         ten_thousand("万"),
-        billion("十"),
-        million("百"),
-        ten_million("千"),
-        hundred_mullion("亿");
-
+        billion("十万"),
+        million("百万"),
+        ten_million("千万"),
+        hundred_mullion("亿"),
+        ten_billon("十亿"),
+        hundred_billon("百亿"),
+        thousand_billon("千亿"),
+        ten_thousand_billon("万亿");
         private String value;
 
         ChineseUnit(String value) {
