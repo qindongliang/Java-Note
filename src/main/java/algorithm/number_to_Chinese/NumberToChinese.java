@@ -1,6 +1,10 @@
 package algorithm.number_to_Chinese;
 
 
+import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class NumberToChinese {
@@ -97,15 +101,11 @@ public class NumberToChinese {
             }
         }
 
-//        System.out.println(sb.toString());
         String filters[]=new String[]{"亿","万"};
         for (String filter:filters )
         while (sb.indexOf(filter)!=sb.lastIndexOf(filter)){
                 sb.deleteCharAt(sb.indexOf(filter));
         }
-
-
-
 
 
     return  sb.toString();
@@ -129,12 +129,15 @@ public class NumberToChinese {
 //        System.out.println(numberToChinese(302050406L));//三亿零两百零五万零四百零六
         System.out.println(numberToChinese(3020504060L));//三十亿两千零五十万零四千零六十
 //        System.out.println(numberToChinese(30020504060L));//三百亿两千零五十万零四千零六十
-        System.out.println(numberToChinese(504060));//五十万零四千零六十
-        System.out.println(numberToChinese(500460));//五十万零四百六十
-        System.out.println(numberToChinese(50460));//五万零四百六十
-        System.out.println(numberToChinese(332114));//三十三万两千一百一十四
-        System.out.println(numberToChinese(54123));//五万四千一百两十三
-        System.out.println(numberToChinese(5004));//五万四千一百两十三
+//        System.out.println(numberToChinese(504060));//五十万零四千零六十
+//        System.out.println(numberToChinese(500460));//五十万零四百六十
+//        System.out.println(numberToChinese(50460));//五万零四百六十
+//        System.out.println(numberToChinese(332114));//三十三万两千一百一十四
+//        System.out.println(numberToChinese(54123));//五万四千一百两十三
+//        System.out.println(numberToChinese(5004));//五万四千一百两十三
+//        System.out.println(numberToChinese(3050000000l));//五万四千一百两十三
+        System.out.println(numberToChinese(300034302l));//五万四千一百两十三'
+        System.out.println(numberToChinese(300004302l));//五万四千一百两十三
 
 
     }
