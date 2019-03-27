@@ -66,13 +66,9 @@ public class NumberToChinese {
 
 
         StringBuilder  sb=new StringBuilder();
-        boolean onceOnly=true;
+
         while (!stack.empty()) {
             BeanUnit bean = stack.pop();
-            BeanUnit nextNumber = null;
-            if (!stack.isEmpty()) {
-                nextNumber = stack.peek();
-            }
             if (bean.orginNum > 0) {
                 sb.append(bean.strNum);
 
@@ -82,19 +78,33 @@ public class NumberToChinese {
 
 
             } else if (bean.chineseUnit != ChineseUnit.zero) {
-
+                BeanUnit nextNumber = stack.peek();
                 if(nextNumber!=null&&nextNumber.orginNum != 0) {
+//                    switch (bean.chineseUnit){
+//                        case hundred_mullion:
+//                        case ten_billon:
+//                        case hundred_billon:
+//                        case thousand_billon:
+//                        case ten_thousand_billon:
+//                            break;
+//                        default:
+//                                sb.append(bean.strNum);
+//                                break;
+//                    }
                     sb.append(bean.strNum);
                 }
+
             }
         }
 
-
+//        System.out.println(sb.toString());
         String filters[]=new String[]{"亿","万"};
         for (String filter:filters )
         while (sb.indexOf(filter)!=sb.lastIndexOf(filter)){
                 sb.deleteCharAt(sb.indexOf(filter));
         }
+
+
 
 
 
@@ -107,16 +117,24 @@ public class NumberToChinese {
     public static void main(String[] args) {
 
 
-//        System.out.println(numberToChinese(104040408));
-        System.out.println(numberToChinese(100030));
-        System.out.println(numberToChinese(1030000));
-//        System.out.println(numberToChinese(301000010));
-//        System.out.println(numberToChinese(200003));
-//        System.out.println(numberToChinese(100029338));
-//        System.out.println(numberToChinese(100209));
-        System.out.println(numberToChinese(3000000008L));
-
-
+//        System.out.println(numberToChinese(104040408));//一亿零四百零四万零四百零八
+//        System.out.println(numberToChinese(100030));//一十万零三十
+//        System.out.println(numberToChinese(1030000));//一百零三万
+//        System.out.println(numberToChinese(301000010));//三亿零一百万零一十
+//        System.out.println(numberToChinese(200003));//两十万零三
+//        System.out.println(numberToChinese(100029338));//一亿零两万九千三百三十八
+//        System.out.println(numberToChinese(100209));//一十万零两百零九
+//        System.out.println(numberToChinese(33000000008L));//三百三十亿零八
+//        System.out.println(numberToChinese(8877666555L));//八十八亿七千七百六十六万六千五百五十五
+//        System.out.println(numberToChinese(302050406L));//三亿零两百零五万零四百零六
+        System.out.println(numberToChinese(3020504060L));//三十亿两千零五十万零四千零六十
+//        System.out.println(numberToChinese(30020504060L));//三百亿两千零五十万零四千零六十
+        System.out.println(numberToChinese(504060));//五十万零四千零六十
+        System.out.println(numberToChinese(500460));//五十万零四百六十
+        System.out.println(numberToChinese(50460));//五万零四百六十
+        System.out.println(numberToChinese(332114));//三十三万两千一百一十四
+        System.out.println(numberToChinese(54123));//五万四千一百两十三
+        System.out.println(numberToChinese(5004));//五万四千一百两十三
 
 
     }
