@@ -265,17 +265,6 @@ public class AVLTree {
         Node root = null;
         AVLTree i = new AVLTree();
         testCase2(root,i);
-//        root = i.insert(root, 6);
-//        root = i.insert(root, 9);
-//        root = i.insert(root, 14);
-//        root = i.insert(root, 11);
-//        root = i.insert(root, 10);
-
-
-//        i.inorder(root);
-
-
-
     }
 
 
