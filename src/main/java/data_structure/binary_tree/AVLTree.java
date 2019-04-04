@@ -118,42 +118,6 @@ public class AVLTree {
 
     }
 
-
-
-    private Node balance(Node node,int data){
-        node.height=Math.max(getHeight(node.left),getHeight(node.right))+1;
-
-        int balDiff=getBalance(node);
-
-
-        // 左倾斜，右旋
-        if(balDiff>1&&data<node.left.data){
-            return rightRotate(node);
-        }
-
-        // 右倾斜，左旋
-
-        if(balDiff<-1&&data> node.right.data){
-            return leftRotate(node);
-        }
-
-        // 左倾斜，先左旋，再右旋
-        if(balDiff>1&&data>node.left.data){
-            node.left=leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-
-        // 右倾斜，先右旋，再左旋
-        if(balDiff<-1&&data<node.right.data){
-            node.right=rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
-    }
-
-
     private Node delete(Node node, int data){
 
         if(node==null){
