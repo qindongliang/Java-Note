@@ -16,7 +16,7 @@ public class MyInterceptor implements MethodInterceptor {
 
 //        methodProxy.invokeSuper(o,objects);
 //        SaveClassToDisk.save(o.getClass().getName(),o.getClass(),"G:/proxy.cglib_proxy.Hello$$EnhancerByCGLIB$$733c4bc0.class");
-        SaveClassToDisk.save(o.getClass().getName(),o.getClass(),"G:/gxx.class");
+        SaveClassToDisk.save(o.getClass().getName(),o.getClass(),"./gxx.class");
         return null;
     }
 }

@@ -17,7 +17,7 @@ public class TestMain {
         enhancer.setStrategy(new DefaultGeneratorStrategy(){
             @Override
             protected byte[] transform(byte[] b) throws Exception {
-                FileOutputStream   out = new FileOutputStream("G:/hello.class");
+                FileOutputStream   out = new FileOutputStream("./hello.class");
                 //将代理对象的class字节码写到硬盘上
                 out.write(b);
                 out.flush();
