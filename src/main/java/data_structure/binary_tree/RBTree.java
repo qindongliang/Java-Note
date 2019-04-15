@@ -58,22 +58,37 @@ public class RBTree<K extends  Comparable<K>,V>   {
         }else if(target.uncle().isRed()){
             //如果叔叔节点是红色，那么只需要变色即可=> 父节点和叔叔全变黑色，爷爷节点变黑色，然后
             //从爷爷节点开始，重复此步骤，对整棵树的可能修改的颜色进行校正
-
-
+            recolor(target);
         }
 
 
     }
 
     public void recolor(Node target){
+        if(target.isRoot()){
+            target.setBlack();
+            return;
+        }
+        //进来该方法的targe的颜色一定是红色的，所以不需要在判断
         //recolor方法会调用递归多次，需要需要判断父节点是否为黑色，黑色不需要进行染色处理
         if(target.parent.isBlack()){
             return;
         }
 
-        if(target.uncle().isRed()){
+        //走到这里targe.parent 肯定是红色的
 
+        Node uncle=target.uncle();
+        //
+        if(uncle!=null && uncle.isRed()){
+            target.parent.setBlack();
+            uncle.setBlack();
+            Node grandParent=target.grandParent();
+            //能进到这个方法，肯定grandParent不为null，取uncle的时候判断了
+            grandParent.setRed();
+            recolor(grandParent);//递归变色
         }
+        //变色完毕后
+        addFixTree(target);
 
     }
 
@@ -150,6 +165,10 @@ public class RBTree<K extends  Comparable<K>,V>   {
             return null;
         }
 
+        public boolean isRoot(){
+            return parent==null;
+        }
+
         public boolean isBlack(){
             return this.color==BLACK;
         }
@@ -158,6 +177,13 @@ public class RBTree<K extends  Comparable<K>,V>   {
             return this.color==RED;
         }
 
+        public void setBlack(){
+            this.color=BLACK;
+        }
+
+        public void setRed(){
+            this.color=RED;
+        }
 
         // 找叔叔节点
         public Node uncle(){
