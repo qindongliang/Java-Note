@@ -32,9 +32,9 @@ public class RBTree<K extends  Comparable<K>,V>   {
                 parent=current;
 
                 if(key.compareTo(current.key)>0){
-                    current=current.rightChild;
+                    current=current.right;
                 }else{
-                    current=current.leftChild;
+                    current=current.left;
                 }
 
             }
@@ -43,9 +43,9 @@ public class RBTree<K extends  Comparable<K>,V>   {
             Node newNode=new Node(key,value,RED);
             newNode.parent=parent;//parent赋值
             if(key.compareTo(parent.key)<0){
-                parent.leftChild=newNode;//左孩子
+                parent.left =newNode;//左孩子
             }else if(key.compareTo(parent.key)>0){
-                parent.rightChild=newNode;//右孩子
+                parent.right =newNode;//右孩子
             }
             //进行矫正
             addFixTree(newNode);
@@ -59,7 +59,7 @@ public class RBTree<K extends  Comparable<K>,V>   {
 
 
     public void addFixTree(Node target){
-
+        //新添加的节点都是红色
         if(target.parent.isBlack()){//父节点颜色是黑色，没有违背任何红黑树性质，直接返回
             return;
         }else if(target.uncle().isRed()){
@@ -70,16 +70,106 @@ public class RBTree<K extends  Comparable<K>,V>   {
             //如果叔叔节点的颜色是黑色，需要分四种情况做旋转，这一点与AVL树的情况类似
             //1.左旋 2.右旋  3.左右旋 4.右左旋
             //这个地方不需要判断是否null
-            Node grandParent=target.grandParent();
+
+            //left-left case
+            if(target.isLeft()&&target.parent.isLeft()){
+             leftLeftCase(target);
+            //left(parent)-right(child) case
+            }else if(target.isRight()&&target.parent.isLeft()){
+
+            //right-right case
+            }else if(target.isRight()&&target.parent.isRight()){
+
+            //right(parent)-left(child) case
+            }else if(target.isLeft()&&target.parent.isRight()){
+
+            }
+
+
+        }
+
+    }
+
+    public void leftLeftCase(Node target){
+         //左-左的情况，是需要右旋，右旋的节点是该节点的爷爷节点做为参照，具体见：https://www.geeksforgeeks.org/c-program-red-black-tree-insertion/
+        rotateRight(target.grandParent());
+
+        if(target.isRed()&&target.parent.isRed()){//双红
+            target.parent.setBlack();//parent为黑，子节点为两个红
+            if(target.isLeft()){
+                target.parent.right.setRed();
+            }else{
+                target.parent.left.setRed();
+            }
+            root.parent=null;
+        }
+
+
+    }
+
+    /****
+     *
+     * @param p
+     */
+    public void rotateRight(Node p){
+
+        if(p!=null) {
+
+            Node l = p.left;
+            p.left = l.right;
+            if (l.right != null) l.right.parent = p; //设置parent节点
+            l.parent=p.parent;
+            if(p.isRoot()){//如果p是root
+                root=l;
+            }else if(p.isRight()){
+                p.parent.right=l;//如果p原来是父的右孩子，就得把新的l接到原来p.parent.right
+            }else if(p.isLeft()){
+                p.parent.left=l;//如果p原来是父的左孩子，就得把新的l接到原来p.parent.right
+            }
+            l.right=p;//设置右孩子
+            p.parent=l;//设置父节点
+        }
+
+    }
+
+
+    public void rotateLeft(Node target){
+        if(target!=null){
+            Node right=target.right;
+            if(target.isRoot()){
+
+            }
+
 
 
 
 
 
         }
-
-
     }
+
+    private void setRoot(Node target){
+        root=target;
+        if(target!=null){
+            root.setBlack();
+        }
+    }
+
+//    private void replace(Node target, Node replacement) {
+//        if (target.isRoot()) {
+//            setRoot(replacement);
+//        } else {
+//            if (target.getLeft()) {//左孩子
+//                target.parent.left = replacement;
+//            } else {
+//                target.parent.right = replacement;
+//            }
+//        }
+//        if (replacement != null) {
+//            replacement.parent = target.parent;
+//        }
+//    }
+
 
     public void recolor(Node target){
         if(target.isRoot()){
@@ -112,7 +202,11 @@ public class RBTree<K extends  Comparable<K>,V>   {
     public static void main(String[] args) {
 
         RBTree rbTree=new RBTree();
-        rbTree.add(20,"第20条数据");
+        rbTree.add(4,41);
+        rbTree.add(5,51);
+        rbTree.add(3,31);
+        rbTree.add(2,21);
+        rbTree.add(1,21);
 
 
         System.out.println("12");
@@ -142,9 +236,9 @@ public class RBTree<K extends  Comparable<K>,V>   {
 
         private V data;
 
-        private Node leftChild;
+        private Node left;
 
-        private Node rightChild;
+        private Node right;
 
         private Node parent;
 
@@ -160,22 +254,22 @@ public class RBTree<K extends  Comparable<K>,V>   {
             this.key=key;
             this.data=data;
             this.color=color;
-            this.leftChild=new Node();
-            this.rightChild=new Node();
+            this.left =new Node();
+            this.right =new Node();
         }
 
         public boolean hasRightChild(){
-            if(this.rightChild!=null){ return true; }
+            if(this.right !=null){ return true; }
             return false;
         }
 
-        public boolean isLeftChild(){
-            if(this.parent.leftChild==this)  {return true;}
+        public boolean isLeft(){
+            if(this.parent.left ==this)  {return true;}
             return false;
         }
 
-        public boolean isRightChild(){
-            if(this.parent.rightChild==this)  {return true;}
+        public boolean isRight(){
+            if(this.parent.right ==this)  {return true;}
             return false;
         }
 
@@ -212,10 +306,10 @@ public class RBTree<K extends  Comparable<K>,V>   {
             Node grandParent=grandParent();
             if(grandParent==null){
                 return null;
-            }else if(parent==grandParent.leftChild){
-                return grandParent.rightChild; //父节点是左，那么父节点的右边是叔叔节点
+            }else if(parent==grandParent.left){
+                return grandParent.right; //父节点是左，那么父节点的右边是叔叔节点
             }else {
-                return grandParent.leftChild; // 父节点本身是右，那么父节点的左边是叔叔节点
+                return grandParent.left; // 父节点本身是右，那么父节点的左边是叔叔节点
             }
         }
 
