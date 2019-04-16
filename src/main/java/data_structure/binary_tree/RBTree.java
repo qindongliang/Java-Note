@@ -1,6 +1,13 @@
 package data_structure.binary_tree;
 
-
+/****
+ * 红黑树代码实现
+ * https://github.com/jrviray/CS_480_Project_06/blob/master/src/cpp/edu/cs480/project06/RedBlackTree.java
+ * https://github.com/mckeeh3/red-black-tree/blob/master/src/main/java/RedBlackTree.java
+ * https://www.geeksforgeeks.org/red-black-tree-set-2-insert/
+ * @param <K>
+ * @param <V>
+ */
 public class RBTree<K extends  Comparable<K>,V>   {
     private final static boolean RED = true;
     private final static boolean BLACK = false;
@@ -59,6 +66,16 @@ public class RBTree<K extends  Comparable<K>,V>   {
             //如果叔叔节点是红色，那么只需要变色即可=> 父节点和叔叔全变黑色，爷爷节点变黑色，然后
             //从爷爷节点开始，重复此步骤，对整棵树的可能修改的颜色进行校正
             recolor(target);
+        }else if(target.uncle().isBlack()){
+            //如果叔叔节点的颜色是黑色，需要分四种情况做旋转，这一点与AVL树的情况类似
+            //1.左旋 2.右旋  3.左右旋 4.右左旋
+            //这个地方不需要判断是否null
+            Node grandParent=target.grandParent();
+
+
+
+
+
         }
 
 
@@ -86,10 +103,10 @@ public class RBTree<K extends  Comparable<K>,V>   {
             //能进到这个方法，肯定grandParent不为null，取uncle的时候判断了
             grandParent.setRed();
             recolor(grandParent);//递归变色
+        }else {
+            //走到这里，说明是本身是红色，父节点是红色，叔叔为黑，连续的双红，需要做修正
+            addFixTree(target);
         }
-        //变色完毕后
-        addFixTree(target);
-
     }
 
     public static void main(String[] args) {
@@ -154,6 +171,11 @@ public class RBTree<K extends  Comparable<K>,V>   {
 
         public boolean isLeftChild(){
             if(this.parent.leftChild==this)  {return true;}
+            return false;
+        }
+
+        public boolean isRightChild(){
+            if(this.parent.rightChild==this)  {return true;}
             return false;
         }
 
