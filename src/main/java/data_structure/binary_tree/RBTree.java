@@ -5,6 +5,7 @@ package data_structure.binary_tree;
  * https://github.com/jrviray/CS_480_Project_06/blob/master/src/cpp/edu/cs480/project06/RedBlackTree.java
  * https://github.com/mckeeh3/red-black-tree/blob/master/src/main/java/RedBlackTree.java
  * https://www.geeksforgeeks.org/red-black-tree-set-2-insert/
+ * https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
  * @param <K>
  * @param <V>
  */
@@ -12,15 +13,15 @@ public class RBTree<K extends  Comparable<K>,V>   {
     private final static boolean RED = true;
     private final static boolean BLACK = false;
 
-    private Node root;
+    private Node<K,V> root;
 
     private String prettyString;
 
 
     public void add(K key, V value) {
 
-        Node current=root;
-        Node parent=null;
+        Node<K,V> current=root;
+        Node<K,V> parent=null;
 
         if(root==null){
             root=new Node(key,value,RED);
@@ -72,40 +73,65 @@ public class RBTree<K extends  Comparable<K>,V>   {
             //这个地方不需要判断是否null
 
             //left-left case
-            if(target.isLeft()&&target.parent.isLeft()){
-             leftLeftCase(target);
-            //left(parent)-right(child) case
-            }else if(target.isRight()&&target.parent.isLeft()){
-
-            //right-right case
-            }else if(target.isRight()&&target.parent.isRight()){
-
-            //right(parent)-left(child) case
-            }else if(target.isLeft()&&target.parent.isRight()){
-
+            if(target.parent.isLeft()&&target.isLeft()){
+                  leftLeftCase(target);//只右旋 10 7 18  5 3
+            }else if(target.parent.isLeft()&&target.isRight()){
+                  leftRightCase(target);//先左旋，然后右旋 10 7 18  5 6
+            }else if(target.parent.isRight()&&target.isRight()){
+                  rightRightCase(target);//只左旋 5 4 9 10 11
+            }else if(target.parent.isRight()&&target.isLeft()){
+                  rightLeftCase(target);//先右旋，然后左旋 5 4 9 12 10
             }
 
 
         }
 
+    }
+
+    public void leftRightCase(Node target){
+         rotateLeft(target.parent);//左旋
+         rotateRight(target.parent);//右旋
+         target=target.left;
+         rotateColor(target);
+
+    }
+
+
+    public void rightLeftCase(Node target){
+        rotateRight(target.parent);//右旋
+        rotateLeft(target.parent);//左旋
+        target=target.right;
+        rotateColor(target);
     }
 
     public void leftLeftCase(Node target){
          //左-左的情况，是需要右旋，右旋的节点是该节点的爷爷节点做为参照，具体见：https://www.geeksforgeeks.org/c-program-red-black-tree-insertion/
         rotateRight(target.grandParent());
+        rotateColor(target);
+    }
 
-        if(target.isRed()&&target.parent.isRed()){//双红
-            target.parent.setBlack();//parent为黑，子节点为两个红
-            if(target.isLeft()){
-                target.parent.right.setRed();
-            }else{
-                target.parent.left.setRed();
-            }
-            root.parent=null;
-        }
+   public void  rotateColor(Node target){
+       //变色
+       if(target.isRed()&&target.parent.isRed()){
+           target.parent.setBlack();//parent为黑，子节点为两个红
+           if(target.isLeft()){
+               target.parent.right.setRed();
+           }else{
+               target.parent.left.setRed();
+           }
+           root.parent=null;
+       }
+    }
 
+    public void rightRightCase(Node target){
+
+        rotateLeft(target.grandParent());
+        rotateColor(target);
 
     }
+
+
+
 
     /****
      *
@@ -123,7 +149,7 @@ public class RBTree<K extends  Comparable<K>,V>   {
                 root=l;
             }else if(p.isRight()){
                 p.parent.right=l;//如果p原来是父的右孩子，就得把新的l接到原来p.parent.right
-            }else if(p.isLeft()){
+            }else {
                 p.parent.left=l;//如果p原来是父的左孩子，就得把新的l接到原来p.parent.right
             }
             l.right=p;//设置右孩子
@@ -133,19 +159,30 @@ public class RBTree<K extends  Comparable<K>,V>   {
     }
 
 
-    public void rotateLeft(Node target){
-        if(target!=null){
-            Node right=target.right;
-            if(target.isRoot()){
+    public void rotateLeft(Node p){
 
+        if(p!=null){
+            Node r=p.right;
+            p.right=r.left;
+            if(r.left!=null){
+                r.left.parent=p;
             }
-
-
-
-
-
-
+            r.parent=p.parent;
+            if(p.isRoot()){
+                root=r;
+            }else if(p.isLeft()){
+                p.parent.left=r;
+            }else  {
+                p.parent.right=r;
+            }
+            r.left=p;
+            p.parent=r;
         }
+
+
+
+
+
     }
 
     private void setRoot(Node target){
@@ -155,20 +192,6 @@ public class RBTree<K extends  Comparable<K>,V>   {
         }
     }
 
-//    private void replace(Node target, Node replacement) {
-//        if (target.isRoot()) {
-//            setRoot(replacement);
-//        } else {
-//            if (target.getLeft()) {//左孩子
-//                target.parent.left = replacement;
-//            } else {
-//                target.parent.right = replacement;
-//            }
-//        }
-//        if (replacement != null) {
-//            replacement.parent = target.parent;
-//        }
-//    }
 
 
     public void recolor(Node target){
@@ -199,17 +222,86 @@ public class RBTree<K extends  Comparable<K>,V>   {
         }
     }
 
+    public void inorder(Node root) {
+        if (root.key == null) {
+            return;
+        }
+        inorder(root.left);
+
+        System.out.println(root.key);
+
+        inorder(root.right);
+
+    }
+
+    /***
+     * 根据key搜索指定节点
+     * @param k
+     * @return
+     */
+    public Node<K,V> search(K k){
+        Node<K,V> p=root;
+        while (p.key!=null){
+            int cmp=k.compareTo(p.key);
+            if(cmp<0){
+                p=p.left;
+            }else if(cmp>0){
+                p=p.right;
+            }else {
+                return p;
+            }
+        }
+        return null;
+    }
+
+
+    public Node<K,V> successor(Node<K,V>  t){
+            //找到右子树里面找到最小的
+            Node<K,V> p=t.right;
+            while (p.left.key!=null){
+                p=p.left;
+            }
+            return p;
+    }
+
+
+    public void delete(K k){
+
+    Node<K,V> p=search(k);
+    if(p==null){ return;}
+
+    if(p.left.key!=null&&p.right.key!=null){//拥有2个孩子节点
+        Node<K,V> s=successor(p);//找到后继
+        p.key=s.key; //改变p的key为s.key
+        p.data=s.data;//改变p的data为s.data
+        //注意上面是指针传递，所以p的内容已经被修改
+        p = s;//这里又把s.内存地址赋值给p，对p上一个的内容的不会产生影响
+
+    }
+
+
+
+
+
+
+    }
+
+
+
+
     public static void main(String[] args) {
 
-        RBTree rbTree=new RBTree();
-        rbTree.add(4,41);
-        rbTree.add(5,51);
-        rbTree.add(3,31);
-        rbTree.add(2,21);
-        rbTree.add(1,21);
+        RBTree<Integer,Integer> rbTree=new RBTree();
+        rbTree.add(10,5);
+        rbTree.add(20,4);
+        rbTree.add(30,9);
+        rbTree.add(15,10);
+
+//        rbTree.inorder(rbTree.root);
+
+        System.out.println(rbTree.search(1));
 
 
-        System.out.println("12");
     }
 
 
@@ -230,17 +322,17 @@ public class RBTree<K extends  Comparable<K>,V>   {
         return null;
     }
 
-    class Node{
+    class Node<K extends  Comparable<K>,V>{
 
         private K key;
 
         private V data;
 
-        private Node left;
+        private Node<K,V> left;
 
-        private Node right;
+        private Node<K,V> right;
 
-        private Node parent;
+        private Node<K,V> parent;
 
         private boolean color;
 
@@ -317,7 +409,7 @@ public class RBTree<K extends  Comparable<K>,V>   {
 
 
 
-        public int compareTo(Node node){
+        public int compareTo(Node<K,V> node){
             return this.key.compareTo(node.key);
         }
 
