@@ -276,14 +276,114 @@ public class RBTree<K extends  Comparable<K>,V>   {
         p.data=s.data;//改变p的data为s.data
         //注意上面是指针传递，所以p的内容已经被修改
         p = s;//这里又把s.内存地址赋值给p，对p上一个的内容的不会产生影响
+    }
+    //获取需要被替换掉的节点
+    Node<K,V> replacement=p.left.key!=null?p.left:p.right;
+
+    if(replacement!=null){
+        //去掉找到的p
+        replacement.parent=p.parent;
+
+        //连接p.parent和末尾的节点
+        if(p.parent==null){
+            root=replacement;
+        }else if(p.isLeft()){
+            p.parent.left=replacement;
+        }else{
+            p.parent.right=replacement;
+        }
+
+        //p节点的所有的引用置为null，方便gc
+        p.left=p.right=p.parent=null;
+        //如果删除的是黑色节点，就会导致不平衡，所以需要修复
+        if(p.isBlack()){
+            fixAfterDeletion(replacement);
+        }
+
+    }else  if(p.parent==null){
+            root=null;
+    }else {//没有两个孩子，只有单个孩子，直接用父的引用直接其后面的即可
+        if(p.isBlack()){
+            fixAfterDeletion(p);//删掉的是黑色就得做均衡
+        }
+
+        if(p.parent!=null){
+            if(p.isLeft()){
+                p.parent.left=new Node<>();
+            }else if(p.isRight()){
+                p.parent.right=new Node<>();
+            }
+            p.parent=null;
+        }
 
     }
 
+    }
 
+    private void fixAfterDeletion(Node<K,V> x){
 
+        while (x!=root&&x.isBlack()){
 
+            if(x.isLeft()){
+                Node<K,V> sib=x.parent.right;
+                if(sib.isRed()){//如果x的兄弟节点是红色
+                    sib.setBlack();//给x的兄弟设置成黑色
+                    x.parent.setRed();//给他们的父节点设置成红色
+                    rotateLeft(x.parent);//左边删除了，所以左边少节点，需要左旋
+                    sib=x.parent.right;//新的兄弟节点
+                }
+                //如果兄弟节点的孩子都是黑色，需要将其设置成红色
+                if(sib.left.isBlack()&&sib.right.isBlack()){
+                    sib.setBlack();
+                    x=x.parent;//继续向上遍历修复
+                }else {
+                    if(sib.right.isBlack()){
+                        //兄弟的右边是黑色，左边是红色
+                        sib.left.setBlack();//需要将其左边设置黑色
+                        sib.setRed();//sib父节点设置成红色
+                        rotateRight(sib);//右旋
+                        sib=x.parent.right;
 
+                    }
+                    sib.color=x.parent.color;
+                    x.parent.setBlack();
+                    sib.right.setBlack();
+                    rotateLeft(x.parent);
+                    x=root;
+                }
 
+            }else{
+                //与if里面相反的逻辑
+                Node<K,V> sib=x.parent.left;
+                if(sib.isRed()){
+                    sib.setBlack();
+                    x.parent.setRed();
+                    rotateRight(x.parent);
+                    sib=x.parent.left;
+                }
+
+                if(sib.right.isBlack()&&sib.left.isBlack()){
+                    sib.setRed();;
+                    x = x.parent;
+                }else {
+
+                    if(sib.left.isBlack()){
+                        sib.right.setBlack();
+                        sib.setRed();;
+                        rotateLeft(sib);
+                        sib=x.parent.left;
+                    }
+                    sib.color=x.parent.color;
+                    x.parent.setBlack();
+                    sib.left.setBlack();
+                    rotateRight(x.parent);
+                    x=root;
+                }
+
+            }
+
+        }
+      x.setBlack();
     }
 
 
@@ -292,14 +392,16 @@ public class RBTree<K extends  Comparable<K>,V>   {
     public static void main(String[] args) {
 
         RBTree<Integer,Integer> rbTree=new RBTree();
-        rbTree.add(10,5);
+//        rbTree.add(30,5);
         rbTree.add(20,4);
-        rbTree.add(30,9);
-        rbTree.add(15,10);
+        rbTree.add(10,9);
+        rbTree.add(30,10);
+        rbTree.add(25,10);
+        rbTree.add(35,10);
+        rbTree.delete(20);
+        rbTree.inorder(rbTree.root);
 
-//        rbTree.inorder(rbTree.root);
-
-        System.out.println(rbTree.search(1));
+//        System.out.println(rbTree.search(1));
 
 
     }
