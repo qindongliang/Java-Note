@@ -180,6 +180,16 @@ public class SkipList<K extends Comparable<K>, V> {
 
     public static void main(String[] args) {
 
+
+        SkipList<Integer,String> skipList=new SkipList<>();
+
+        skipList.add(3,"");
+        skipList.add(1,"");
+
+        System.out.println();
+
+
+
     }
 
 
