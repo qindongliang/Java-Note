@@ -30,8 +30,10 @@ public class SkipList<K extends Comparable<K>, V> {
     private long level(){
 
         long level=0;
-        while (level<=size&&random.nextDouble()<p){
+        double randomNumber=random.nextDouble();
+        while (level<=size&&randomNumber<p){
             level++;
+            randomNumber=random.nextDouble();
         }
         return level;
 
@@ -185,6 +187,10 @@ public class SkipList<K extends Comparable<K>, V> {
 
         skipList.add(3,"");
         skipList.add(1,"");
+        skipList.add(11,"");
+        skipList.add(16,"");
+        skipList.add(4,"");
+        skipList.add(2,"");
 
         System.out.println();
 
