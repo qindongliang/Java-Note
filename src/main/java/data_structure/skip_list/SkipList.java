@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/***
+/**
+ * 跳跃表的一种实现方法，使用的是链表实现
+ *
  * https://github.com/dineshappavoo/SkipList/blob/master/src/skiplist/SkipList.java
  * https://github.com/kjiwa/java-skip-list/blob/master/SkipList.java
  * @param <K>
