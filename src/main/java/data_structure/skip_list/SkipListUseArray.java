@@ -11,7 +11,7 @@ public class SkipListUseArray {
     public class Node{
 
         private int value;
-        private Node next[];//指向下一个节点
+        private Node next[];//指向下一个节点和维持多个层级的索引数据
         private int level;//跨越几层
 
         public Node(int value, int level ){
