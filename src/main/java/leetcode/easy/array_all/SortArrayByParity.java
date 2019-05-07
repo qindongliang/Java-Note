@@ -2,6 +2,9 @@ package leetcode.easy.array_all;
 
 import java.util.Arrays;
 
+/***
+ *https://leetcode.com/problems/sort-array-by-parity/
+ */
 public class SortArrayByParity {
 
 
