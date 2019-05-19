@@ -7,7 +7,7 @@ public class TrieByArray {
 
 
        TrieNode[] children;
-       boolean endFlag;
+       boolean isWord;
 
        public TrieNode(){
            children=new TrieNode[26];
@@ -36,13 +36,13 @@ public class TrieByArray {
 
        }
 
-       prev.endFlag=true;
+       prev.isWord =true;
 
    }
 
    public boolean search(String word){
        TrieNode result=checkExists(word);
-       if(result!=null&&result.endFlag){
+       if(result!=null&&result.isWord){
            return true;
        }
        return false;
@@ -94,7 +94,7 @@ public class TrieByArray {
                currentNode=null;
                deletedSelf=true;
            }else{//有孩子节点
-               currentNode.endFlag=false;//则将其置为非单词属性即可
+               currentNode.isWord =false;//则将其置为非单词属性即可
                deletedSelf=false;
            }
 
@@ -104,7 +104,7 @@ public class TrieByArray {
            boolean childDeleted=deleteWord(childNode,word,length,level+1);
            if(childDeleted){//如果单词的最后的字符没有孩子节点，就可以被删除，然后需要继续向上递归判断其前一个字符是否是需要删除
                currentNode.children[word.charAt(level)-'a']=null;//设置子节点为null
-               if(currentNode.endFlag){//判断父节点是否是一个word的结束，如果是说明是公共前缀就不能再删除了
+               if(currentNode.isWord){//判断父节点是否是一个word的结束，如果是说明是公共前缀就不能再删除了
                    deletedSelf=false;
                }else if(hasChildren(currentNode)){//如果这个父节点还有孩子节点，说明也是公共前缀，也不能再删除了
                   deletedSelf=false;
