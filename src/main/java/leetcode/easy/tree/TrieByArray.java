@@ -4,11 +4,8 @@ public class TrieByArray {
 
 
    static   class TrieNode{
-
-
-       TrieNode[] children;
-       boolean isWord;
-
+       TrieNode[] children;//存储所有的可能性
+       boolean isWord;//是否是一个完整单词
        public TrieNode(){
            children=new TrieNode[26];
        }
