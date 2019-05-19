@@ -137,26 +137,54 @@ public class TrieByArray {
 
 
     public static void main(String[] args) {
-        TrieByArray trie = new TrieByArray();
-//
-//        trie.insert("apple");
-//        System.out.println(trie.search("apple"));   // returns true
-//
-//        System.out.println(trie.search("app"));     // returns false
-//        System.out.println(trie.startsWith("app")); // returns true
-//        trie.insert("app");
-//        System.out.println(trie.search("app"));     // returns true
 
-        trie.insert("bat");
-        trie.insert("bag");
-        System.out.println(trie.search("bat"));
-        System.out.println(trie.startsWith("ba"));
-        trie.delete("bat");
-        System.out.println(trie.search("bat"));
-        System.out.println(trie.startsWith("ba"));
-        System.out.println(trie.search("bag"));
+       TrieByArray trie=new TrieByArray();
+       trie.example1();
+//       trie.example2();
+//       trie.example3();
 
 
-    }
+   }
+
+   private void example1(){
+       TrieByArray trie = new TrieByArray();
+
+        trie.insert("apple");
+        System.out.println(trie.search("apple"));   // returns true
+
+        System.out.println(trie.search("app"));     // returns false
+        System.out.println(trie.startsWith("app")); // returns true
+        trie.insert("app");
+        System.out.println(trie.search("app"));     // returns true
+   }
+
+   private void example2(){
+       TrieByArray trie = new TrieByArray();
+
+       trie.insert("gat");
+       trie.insert("gag");
+       System.out.println(trie.search("gat"));//true
+       System.out.println(trie.startsWith("ga"));//true
+       trie.delete("gat");
+       System.out.println(trie.search("gat"));//false
+       System.out.println(trie.startsWith("ga"));//true
+       System.out.println(trie.search("gag"));//true
+   }
+
+   private void example3(){
+       TrieByArray trie = new TrieByArray();
+       trie.insert("abcd");
+       trie.insert("abc");
+
+       System.out.println(trie.search("abc"));
+       System.out.println(trie.startsWith("abc"));
+
+       trie.delete("abc");
+
+       System.out.println(trie.search("abc"));
+       System.out.println(trie.search("abcd"));
+       System.out.println(trie.startsWith("abc"));
+   }
+
 
 }
