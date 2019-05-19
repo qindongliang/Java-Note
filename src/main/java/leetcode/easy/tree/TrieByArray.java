@@ -67,6 +67,59 @@ public class TrieByArray {
    }
 
 
+   public void delete(String key){
+     if(root==null||key==null){
+         return;
+     }
+
+       deleteWord(root,key,key.length(),0);
+
+   }
+
+   private boolean hasChildren(TrieNode currentNode){
+       for (int i = 0; i < currentNode.children.length; i++) {
+           if(currentNode.children[i]!=null){
+               return true;
+           }
+       }
+       return false;
+   }
+
+
+   public boolean deleteWord(TrieNode currentNode,String word,int length,int level){
+       boolean deletedSelf=false;
+       if(level==length){
+            //如果当前节点是最后，并且没有孩子节点
+           if(!hasChildren(currentNode)){
+               currentNode=null;
+               deletedSelf=true;
+           }else{//有孩子节点
+               currentNode.endFlag=false;//则将其置为非单词属性即可
+               deletedSelf=false;
+           }
+
+       }else {
+           //由下而上递归删除
+           TrieNode childNode=currentNode.children[word.charAt(level)-'a'];
+           boolean childDeleted=deleteWord(childNode,word,length,level+1);
+           if(childDeleted){//如果单词的最后的字符没有孩子节点，就可以被删除，然后需要继续向上递归判断其前一个字符是否是需要删除
+               currentNode.children[word.charAt(level)-'a']=null;//设置子节点为null
+               if(currentNode.endFlag){//判断父节点是否是一个word的结束，如果是说明是公共前缀就不能再删除了
+                   deletedSelf=false;
+               }else if(hasChildren(currentNode)){//如果这个父节点还有孩子节点，说明也是公共前缀，也不能再删除了
+                  deletedSelf=false;
+               }else{//到这一步，说明父节点也是要删除单词唯一的的字符，可以继续向上删除
+                   currentNode=null;
+                   deletedSelf=true;
+               }
+           }else {//如果不需要被删除，则向上传递false即可
+               deletedSelf=false;
+           }
+       }
+
+       return deletedSelf;
+   }
+
 
 
    public boolean startsWith(String prefix){
@@ -85,14 +138,25 @@ public class TrieByArray {
 
     public static void main(String[] args) {
         TrieByArray trie = new TrieByArray();
+//
+//        trie.insert("apple");
+//        System.out.println(trie.search("apple"));   // returns true
+//
+//        System.out.println(trie.search("app"));     // returns false
+//        System.out.println(trie.startsWith("app")); // returns true
+//        trie.insert("app");
+//        System.out.println(trie.search("app"));     // returns true
 
-        trie.insert("apple");
-        System.out.println(trie.search("apple"));   // returns true
+        trie.insert("bat");
+        trie.insert("bag");
+        System.out.println(trie.search("bat"));
+        System.out.println(trie.startsWith("ba"));
+        trie.delete("bat");
+        System.out.println(trie.search("bat"));
+        System.out.println(trie.startsWith("ba"));
+        System.out.println(trie.search("bag"));
 
-        System.out.println(trie.search("app"));     // returns false
-        System.out.println(trie.startsWith("app")); // returns true
-        trie.insert("app");
-        System.out.println(trie.search("app"));     // returns true
+
     }
 
 }
