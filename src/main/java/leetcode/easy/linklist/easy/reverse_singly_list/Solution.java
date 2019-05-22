@@ -281,13 +281,26 @@ public class Solution {
 //        System.out.println(solution.isPalindrome());
         Solution solution=new Solution();
 
-        solution.add(1);
+        solution.add(11);
         solution.add(2);
+        solution.add(4);
+        solution.add(8);
+        solution.add(0);
+
+//        showAll(solution.head);
+        printEndToStart(solution.head);
 
 
-
-        System.out.println(solution.isPalindrome());
+//        System.out.println(solution.isPalindrome());
     }
+
+
+    private static void printEndToStart(ListNode head){
+        if(head==null){ return; }
+        printEndToStart(head.next);
+        System.out.println(head.val);
+    }
+
 
 
 
