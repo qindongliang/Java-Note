@@ -258,7 +258,80 @@ public class Solution {
 
     }
 
+
+    public ListNode buildCircleLinkList(){
+
+        Solution solution=new Solution();
+
+        ListNode  n1=new ListNode(13);
+
+        ListNode  n2=new ListNode(4);
+
+        ListNode  n3=new ListNode(25);
+
+        ListNode  n4=new ListNode(16);
+
+        ListNode  n5=new ListNode(33);
+
+        ListNode  n6=new ListNode(72);
+
+
+        n6.next=n3;
+
+
+        solution.addNode(n1);
+        solution.addNode(n2);
+        solution.addNode(n3);
+        solution.addNode(n4);
+        solution.addNode(n5);
+        solution.addNode(n6);
+
+
+        return solution.head;
+    }
+
+    public void detectCircle(){
+
+        ListNode head=buildCircleLinkList();
+
+        ListNode slow=head;
+        ListNode fast=head;
+
+        while (slow!=null&&fast.next!=null){
+
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(slow==fast){//有环
+                break;
+            }
+        }
+
+        if(fast==null||fast.next==null){
+            System.out.println("该链表没有环！");
+        }else {
+            System.out.println("链表存在闭环！");
+        }
+
+        slow=head;
+        //开始找环的入口点
+        while (slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+
+        System.out.println("环的值是："+slow.val);
+    }
+
     public static void main(String[] args) {
+
+        Solution solution=new Solution();
+        solution.detectCircle();
+
+
+    }
+
+    public static void main3(String[] args) {
 //        System.out.println(hasCycle(null));
 
 //        Solution solution=new Solution();
