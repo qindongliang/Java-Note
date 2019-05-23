@@ -233,7 +233,7 @@ public class Solution {
         ListNode node3=new ListNode(3);
         ListNode node4=new ListNode(4);
         ListNode node5=new ListNode(5);
-                         //ListNode(1);
+                         //MyLinkList(1);
         Solution solution=new Solution();
         solution.addNode(node1);
         solution.addNode(node2);
