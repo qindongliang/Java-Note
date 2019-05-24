@@ -11,8 +11,8 @@ public class RemoveDuplicate {
      *  1->2->3
      * @param thead
      */
-    public static void delete1(MyLinkList.ListNode thead){
-        MyLinkList.ListNode head=thead;
+    public static void delete1(ListNode thead){
+        ListNode head=thead;
         while (head!=null&&head.next!=null){
 
             if(head.val==head.next.val){
@@ -25,29 +25,33 @@ public class RemoveDuplicate {
 
     /****
      * https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
-     * @param thead
+     * @param head
      */
-    public static MyLinkList.ListNode delete2(MyLinkList.ListNode head){
+    public static ListNode delete2(ListNode head){
 
-        MyLinkList.ListNode dummy=new MyLinkList.ListNode(-1);
+        //指针一个虚拟head
+        ListNode dummy=new ListNode(-1);
         dummy.next=head;
 
 
-        MyLinkList.ListNode pre=dummy;
+        ListNode pre=dummy;
 
-        MyLinkList.ListNode cur=head;
+        ListNode cur=head;
 
         while (cur!=null){
 
+            //如果是连续出现的数字，该段代码可以找到最后一个重复的数字赋值到cur里面
             while (cur.next!=null&&cur.val==cur.next.val){
                 cur=cur.next;
             }//找到第一个不相等的第一个节点，也就是cur.next
 
+            //移动pre指针到不重复的第一个节点上
             if(pre.next==cur){
                 pre=pre.next;
-            }else{
+            }else{//把不重复的第一个元素，挂到pre指针的next上
                 pre.next=cur.next;
             }
+            //cur指针移动
             cur=cur.next;
 
         }
