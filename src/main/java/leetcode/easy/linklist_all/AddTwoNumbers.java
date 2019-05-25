@@ -1,9 +1,9 @@
-package leetcode.easy.add_two_numers_02;
+package leetcode.easy.linklist_all;
 
 /**
  * Created by Administrator on 2018/7/10.
  */
-public class Solution {
+public class AddTwoNumbers {
 
 
     public static class ListNode{
@@ -61,9 +61,9 @@ public class Solution {
     public static void main(String[] args) {
 
 
-        Solution solution=new Solution();
+        AddTwoNumbers addTwoNumbers =new AddTwoNumbers();
 
-        ListNode xt=solution.addTwoNumbers(new ListNode(243),new ListNode(564));
+        ListNode xt= addTwoNumbers.addTwoNumbers(new ListNode(243),new ListNode(564));
 
         System.out.println(xt.val);
 
