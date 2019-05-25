@@ -1,11 +1,11 @@
-package leetcode.easy.string.leetcode_929;
+package leetcode.easy.string_all;
 
 import java.util.HashSet;
 
 /**
  * Created by qindongliang on 2018/12/1.
  */
-public class Solution {
+public class NumUniqueEmails {
 
     public static int numUniqueEmails2(String[] emails) {
         HashSet<String > sets=new HashSet<>();
