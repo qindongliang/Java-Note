@@ -1,4 +1,4 @@
-package leetcode.easy.tree;
+package leetcode.easy.tree_all;
 
 public class TrieByArray {
 

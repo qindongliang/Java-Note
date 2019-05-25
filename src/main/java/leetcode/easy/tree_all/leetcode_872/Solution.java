@@ -1,6 +1,6 @@
-package leetcode.easy.tree.leetcode_872;
+package leetcode.easy.tree_all.leetcode_872;
 
-import leetcode.easy.tree.bean.left_right_node.TreeNode;
+import leetcode.easy.tree_all.bean.left_right_node.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

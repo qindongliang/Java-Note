@@ -1,4 +1,4 @@
-package leetcode.easy.tree.bean.binary_search_node;
+package leetcode.easy.tree_all.bean.binary_search_node;
 
 /**
  * Created by qindongliang on 2018/11/24.

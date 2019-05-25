@@ -1,4 +1,4 @@
-package leetcode.easy.tree.bean.left_right_node;
+package leetcode.easy.tree_all.bean.left_right_node;
 
 public class TreeNode {
 

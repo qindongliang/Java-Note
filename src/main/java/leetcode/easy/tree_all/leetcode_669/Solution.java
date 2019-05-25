@@ -1,6 +1,6 @@
-package leetcode.easy.tree.leetcode_669;
+package leetcode.easy.tree_all.leetcode_669;
 
-import leetcode.easy.tree.bean.binary_search_node.TreeNode;
+import leetcode.easy.tree_all.bean.binary_search_node.TreeNode;
 
 /**
  * Created by qindongliang on 2018/11/24.

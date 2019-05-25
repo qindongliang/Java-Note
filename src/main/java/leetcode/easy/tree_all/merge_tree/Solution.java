@@ -1,6 +1,4 @@
-package leetcode.easy.tree.merge_tree;
-
-import javax.swing.*;
+package leetcode.easy.tree_all.merge_tree;
 
 /**
  * Created by qindongliang on 2018/10/21.
