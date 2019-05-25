@@ -1,4 +1,4 @@
-package leetcode.easy.palindrome_number;
+package algorithm;
 
 /**
  * Created by qindongliang on 2018/7/15.
