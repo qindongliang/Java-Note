@@ -87,12 +87,23 @@ public class KthSmallest {
     }
 
 
+    public static void findMoreHalfNum(int arr[]){
+        int num=findKthSmall(arr,0,arr.length-1,arr.length/2+1);//因为这个方法是按index查找，所以中位数的index应该向右移
+        System.out.println(num);
+    }
+
+
     public static void main(String[] args) {
 
         int [] arr={12, 3, 5, 7, 4, 19, 26};
         int kthMin = findKthSmall(arr,0,arr.length-1,1);
-
         System.out.println(kthMin);
+
+        //find num which more than half in array
+        int [] brr={4,2,3,4};
+        findMoreHalfNum(brr);
+
+
 
     }
 
