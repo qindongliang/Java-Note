@@ -93,15 +93,55 @@ public class KthSmallest {
     }
 
 
+    /**
+     * 思路：
+     *
+     * 如果已知有一个数字已经在数组里面超过了一半，那么其出现的次数肯定大于所有其他数字出现的次数之和，
+     * 因此我们可以用遍历整个数组，然后用两个变量，分别记录数字和次数，如果遍历到的下一个去前一个数字相同
+     * 则次数+1，否则次数减1，如果次数小于0，那么就要记录新的数字，并把次数设置为1，由于我们想要的数字多余其他次数和的一半
+     * 所以最后变量里面保存的数字，一定是我们想找的数字。
+     *
+     * @param arr
+     */
+    public static void findMoreHalfNum2(int arr[]){
+
+        int count=0;
+        int preNum=-1;
+        for (int i = 0; i < arr.length; i++) {
+
+            if(i==0){
+                preNum=arr[i];
+                count++;
+            }else if(arr[i]==preNum){
+              count++;
+            }else{
+                if(count>0){
+                    count--;
+                }else{
+                    preNum=arr[i];
+                    count=1;
+                }
+
+            }
+        }
+
+        System.out.println(preNum);
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
         int [] arr={12, 3, 5, 7, 4, 19, 26};
-        int kthMin = findKthSmall(arr,0,arr.length-1,1);
-        System.out.println(kthMin);
+//        int kthMin = findKthSmall(arr,0,arr.length-1,1);
+//        System.out.println(kthMin);
 
         //find num which more than half in array
-        int [] brr={4,2,3,4};
-        findMoreHalfNum(brr);
+        int [] brr={4,2,3,4,4,3,3,3,3};
+//        findMoreHalfNum(brr);
+        findMoreHalfNum2(brr);
 
 
 
