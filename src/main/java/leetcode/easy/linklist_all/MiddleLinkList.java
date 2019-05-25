@@ -1,11 +1,9 @@
-package leetcode.easy.middle_linklist;
-
-import java.util.List;
+package leetcode.easy.linklist_all;
 
 /**
  * Created by qindongliang on 2018/8/19.
  */
-public class Solution {
+public class MiddleLinkList {
 
     public ListNode middleNode(ListNode head) {
 
@@ -21,18 +19,6 @@ public class Solution {
     }
 
     ListNode nodes[]=new ListNode[100];
-
-      //Definition for singly-linked list.
-      public class ListNode {
-          int val;
-        ListNode next;
-          ListNode(int x) { val = x; }
-
-          @Override
-          public String toString() {
-              return val+"";
-          }
-      }
 
       private ListNode head;
 
@@ -69,17 +55,17 @@ public class Solution {
 
     public static void main(String[] args) {
 
-            Solution solution=new Solution();
-            solution.add(5);//0
-            solution.add(15);//1
-            solution.add(45);//2
-            solution.add(1);//3
-            solution.add(67);//3
-            solution.add(67);//3
+            MiddleLinkList middleLinkList =new MiddleLinkList();
+            middleLinkList.add(5);//0
+            middleLinkList.add(15);//1
+            middleLinkList.add(45);//2
+            middleLinkList.add(1);//3
+            middleLinkList.add(67);//3
+            middleLinkList.add(67);//3
 
-        int middle=  solution.count/2 ;
+        int middle=  middleLinkList.count/2 ;
 
-        System.out.println(solution.nodes[middle]);
+        System.out.println(middleLinkList.nodes[middle]);
 
 
 
