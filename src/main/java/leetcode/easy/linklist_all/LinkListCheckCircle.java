@@ -1,12 +1,9 @@
-package leetcode.easy.linklist.easy.reverse_singly_list;
-
-import java.util.List;
-import java.util.Stack;
+package leetcode.easy.linklist_all;
 
 /**
  * Created by qindongliang on 2018/8/26.
  */
-public class Solution {
+public class LinkListCheckCircle {
 
     private ListNode head;
     private ListNode tail;
@@ -234,18 +231,18 @@ public class Solution {
         ListNode node4=new ListNode(4);
         ListNode node5=new ListNode(5);
                          //MyLinkList(1);
-        Solution solution=new Solution();
-        solution.addNode(node1);
-        solution.addNode(node2);
-        solution.addNode(node3);
-        solution.addNode(node4);
-        solution.addNode(node5);
-        solution.addNode(node1);
-//        solution.addNode(node2);
+        LinkListCheckCircle linkListCheckCircle =new LinkListCheckCircle();
+        linkListCheckCircle.addNode(node1);
+        linkListCheckCircle.addNode(node2);
+        linkListCheckCircle.addNode(node3);
+        linkListCheckCircle.addNode(node4);
+        linkListCheckCircle.addNode(node5);
+        linkListCheckCircle.addNode(node1);
+//        linkListCheckCircle.addNode(node2);
 
-        ListNode  solw=solution.head;
+        ListNode  solw= linkListCheckCircle.head;
 
-        ListNode  fast=solution.head;
+        ListNode  fast= linkListCheckCircle.head;
 
         while (fast!=null&&fast.next!=null){
             solw=solw.next;
@@ -261,7 +258,7 @@ public class Solution {
 
     public ListNode buildCircleLinkList(){
 
-        Solution solution=new Solution();
+        LinkListCheckCircle linkListCheckCircle =new LinkListCheckCircle();
 
         ListNode  n1=new ListNode(13);
 
@@ -279,15 +276,15 @@ public class Solution {
         n6.next=n3;
 
 
-        solution.addNode(n1);
-        solution.addNode(n2);
-        solution.addNode(n3);
-        solution.addNode(n4);
-        solution.addNode(n5);
-        solution.addNode(n6);
+        linkListCheckCircle.addNode(n1);
+        linkListCheckCircle.addNode(n2);
+        linkListCheckCircle.addNode(n3);
+        linkListCheckCircle.addNode(n4);
+        linkListCheckCircle.addNode(n5);
+        linkListCheckCircle.addNode(n6);
 
 
-        return solution.head;
+        return linkListCheckCircle.head;
     }
 
     public void detectCircle(){
@@ -325,8 +322,8 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        Solution solution=new Solution();
-        solution.detectCircle();
+        LinkListCheckCircle linkListCheckCircle =new LinkListCheckCircle();
+        linkListCheckCircle.detectCircle();
 
 
     }
@@ -334,37 +331,37 @@ public class Solution {
     public static void main3(String[] args) {
 //        System.out.println(hasCycle(null));
 
-//        Solution solution=new Solution();
+//        LinkListCheckCircle linkListCheckCircle=new LinkListCheckCircle();
 
-//        solution.add(1);
-//        solution.add(2);
-//        solution.add(1);
-//        solution.add(2);
-//        solution.add(1);
-//        solution.add(1);
-//        solution.add(4);
-//        solution.add(5);
-//        solution.add(1);
+//        linkListCheckCircle.add(1);
+//        linkListCheckCircle.add(2);
+//        linkListCheckCircle.add(1);
+//        linkListCheckCircle.add(2);
+//        linkListCheckCircle.add(1);
+//        linkListCheckCircle.add(1);
+//        linkListCheckCircle.add(4);
+//        linkListCheckCircle.add(5);
+//        linkListCheckCircle.add(1);
 
-//        solution.delete1(1);
-
-
-//        showAll(solution.head);
-
-//        System.out.println(solution.isPalindrome());
-        Solution solution=new Solution();
-
-        solution.add(11);
-        solution.add(2);
-        solution.add(4);
-        solution.add(8);
-        solution.add(0);
-
-//        showAll(solution.head);
-        printEndToStart(solution.head);
+//        linkListCheckCircle.delete1(1);
 
 
-//        System.out.println(solution.isPalindrome());
+//        showAll(linkListCheckCircle.head);
+
+//        System.out.println(linkListCheckCircle.isPalindrome());
+        LinkListCheckCircle linkListCheckCircle =new LinkListCheckCircle();
+
+        linkListCheckCircle.add(11);
+        linkListCheckCircle.add(2);
+        linkListCheckCircle.add(4);
+        linkListCheckCircle.add(8);
+        linkListCheckCircle.add(0);
+
+//        showAll(linkListCheckCircle.head);
+        printEndToStart(linkListCheckCircle.head);
+
+
+//        System.out.println(linkListCheckCircle.isPalindrome());
     }
 
 
@@ -414,21 +411,21 @@ public class Solution {
 
     public static void main1(String[] args) {
 
-        Solution solution=new Solution();
-        solution.add(1);
-        solution.add(1);
-        solution.add(1);
-        solution.add(2);
-        solution.add(3);
-        solution.add(3);
-        solution.add(4);
+        LinkListCheckCircle linkListCheckCircle =new LinkListCheckCircle();
+        linkListCheckCircle.add(1);
+        linkListCheckCircle.add(1);
+        linkListCheckCircle.add(1);
+        linkListCheckCircle.add(2);
+        linkListCheckCircle.add(3);
+        linkListCheckCircle.add(3);
+        linkListCheckCircle.add(4);
 
 
 
 
-//        showAll(solution.head);
+//        showAll(linkListCheckCircle.head);
 
-//        showAll(solution.duplicateSortedListBetter(solution.head));
+//        showAll(linkListCheckCircle.duplicateSortedListBetter(linkListCheckCircle.head));
 
 
 
