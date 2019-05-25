@@ -1,9 +1,9 @@
-package leetcode.easy.reverse_interger;
+package algorithm;
 
 /**
  * Created by qindongliang on 2018/7/10.
  */
-public class Solution_Better {
+public class ReverseNumber {
 
 
     public static int reverse(int x) {
