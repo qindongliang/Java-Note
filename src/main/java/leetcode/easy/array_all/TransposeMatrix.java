@@ -1,11 +1,11 @@
-package leetcode.easy.transpose_martix;
+package leetcode.easy.array_all;
 
 import java.util.Arrays;
 
 /**
  * Created by qindongliang on 2018/8/12.
  */
-public class Solution {
+public class TransposeMatrix {
 
 
     public static void main(String[] args) {
