@@ -1,9 +1,9 @@
-package leetcode.easy.array.array_partition_i;
+package leetcode.easy.array_all;
 
 /**
  * Created by qindongliang on 2018/8/5.
  */
-public class SortSpecialDemo {
+public class SortSpecialRange {
 
 
     public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package leetcode.easy.flipping_array_img;
+package leetcode.easy.array_all;
 
 import java.util.Arrays;
 
 /**
  * Created by qindongliang on 2018/7/29.
  */
-public class Solution_Normal {
+public class FlippingArrayImg {
 
 
     public static int[][] flipAndInvertImage(int[][] ab) {
