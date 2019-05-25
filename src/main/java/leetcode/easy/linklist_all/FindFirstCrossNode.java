@@ -19,17 +19,9 @@ package leetcode.easy.linklist_all;
  * 最终可得结果（ 注意这个方法不会发生死循环的原因是因为退出条件都为null）
  *
  */
-public class LinklistInterSection {
+public class FindFirstCrossNode {
 
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
