@@ -19,7 +19,7 @@ public class SearchInsertPosition {
         int end=nums.length-1;
 
         while (start<=end){
-            int mid=start+(end-start)/2;
+            int mid=start+(end-start)/2;//没有使用（start+end）/ 2 是为了防止数组越界
             int midVal=nums[mid];
             if(midVal<target){
                 start=mid+1;
