@@ -1,7 +1,4 @@
 package reflection.generics_type;
-
-
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -25,7 +22,7 @@ public class MyClass {
     }
 
     /****
-     * 获取方法返回值的泛型类型
+     * 通过反射获取方法返回值的泛型类型
      * @throws Exception
      */
     public static void  getMethodReturnType() throws Exception{
