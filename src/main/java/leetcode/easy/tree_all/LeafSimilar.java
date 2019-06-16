@@ -1,6 +1,6 @@
-package leetcode.easy.tree_all.leetcode_872;
+package leetcode.easy.tree_all;
 
-import leetcode.easy.tree_all.bean.left_right_node.TreeNode;
+import leetcode.easy.tree_all.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by qindongliang on 2018/11/18.
  */
-public class Solution {
+public class LeafSimilar {
 
 
     public static boolean leafSimilar(TreeNode root1,TreeNode root2){

@@ -1,4 +1,4 @@
-package leetcode.easy.tree_all.merge_tree;
+package leetcode.easy.tree_all;
 import java.util.*;
 /**
  * Created by qindongliang on 2018/10/21.

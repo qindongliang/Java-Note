@@ -1,9 +1,9 @@
-package leetcode.easy.tree_all.merge_tree;
+package leetcode.easy.tree_all;
 
 /**
  * Created by qindongliang on 2018/10/21.
  */
-public class Solution {
+public class MergeTree {
 
    static class TreeNode {
       int val;

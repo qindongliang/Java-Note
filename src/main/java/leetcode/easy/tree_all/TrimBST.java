@@ -1,11 +1,12 @@
-package leetcode.easy.tree_all.leetcode_669;
+package leetcode.easy.tree_all;
 
-import leetcode.easy.tree_all.bean.binary_search_node.TreeNode;
+
+import leetcode.easy.tree_all.TreeNode;
 
 /**
  * Created by qindongliang on 2018/11/24.
  */
-public class Solution {
+public class TrimBST {
 
 
 
@@ -78,13 +79,6 @@ public class Solution {
     public static void main(String[] args) {
 
 //        TreeNode node=TreeNode.getData1();
-        TreeNode node=TreeNode.getData2();
-
-        TreeNode.beforeTraverse(node);
-        System.out.println("\n");
-//
-       TreeNode resultNode=trimBST(node,1,3);
-        TreeNode.beforeTraverse(resultNode);
 
 
 //        iterator(node,1,2);
