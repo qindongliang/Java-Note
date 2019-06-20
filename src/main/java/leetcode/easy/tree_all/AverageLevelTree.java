@@ -5,6 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/***
+ *
+ * 题目描述：给定一个二叉树，让求出每层的节点的平均值，最后以一个list返回
+ *
+ * 思路：其实是考察二叉树的的层级遍历的知识点，迭代的方式非常简洁如下。
+ *
+ */
 public class AverageLevelTree {
 
     public List<Double> averageOfLevels(TreeNode root) {
