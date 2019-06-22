@@ -14,6 +14,7 @@ import java.util.Stack;
  *
  * （2）使用迭代，迭代版本稍微复杂点，因为需要封装一个数据结构（容易理解，但性能稍差。）
  *
+ *  示例代码如下
  *
  */
 public class SumRootToLeaf {
