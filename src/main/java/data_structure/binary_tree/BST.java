@@ -1,9 +1,6 @@
 package data_structure.binary_tree;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class BST< T extends Comparable<T>> {
 
@@ -122,9 +119,133 @@ public class BST< T extends Comparable<T>> {
     }
 
 
+    //递归前序
+    public static void myPreOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        System.out.println(root);
+        myPreOder(root.left);//全部遍历完左子树
+        myPreOder(root.right);//全部遍历完右子树
+    }
+
+    //迭代前序
+    public static void myIterativePreOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            Node<Integer> temp = stack.pop();
+            System.out.println(temp);
+            if (temp.right != null) {
+                stack.push(temp.right);
+            }
+            if (temp.left != null) {
+                stack.push(temp.left);
+            }
+        }
+    }
+
+
+    //递归中序
+    public static void myInOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        myInOder(root.left);//全部遍历完左子树
+        System.out.println(root);
+        myInOder(root.right);//全部遍历完右子树
+    }
+
+
+    //迭代中序
+    public static void myIterativeInOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack();
+        Node<Integer> curr = root;
+        while (!stack.isEmpty() || curr != null) {
+
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            } else {
+                curr = stack.pop();
+                System.out.println(curr);
+                curr = curr.right;
+            }
+
+        }
+    }
+
+
+    //递归后序
+    public static void myPostOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        myPostOder(root.left);//全部遍历完左子树
+        myPostOder(root.right);//全部遍历完右子树
+        System.out.println(root);
+    }
+
+    //迭代后序
+    public static void myIterativePostOder(Node<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node<Integer>> stack = new Stack();
+        stack.push(root);
+
+        LinkedList<Integer> list = new LinkedList<>();
+        while (!stack.empty()) {
+
+            Node<Integer> curr = stack.pop();
+            list.addFirst(curr.data);
+
+            if (curr.left != null) {
+                stack.push(curr.left);
+            }
+
+            if (curr.right != null) {
+                stack.push(curr.right);
+            }
+
+        }
+        System.out.println(list);
+
+    }
 
 
     public static void main(String[] args) {
+        Node<Integer> n1 = new Node<>(3);
+        n1.left = new Node<>(2);
+        n1.left.left = new Node<>(22);
+        n1.left.right = new Node<>(33);
+        n1.right = new Node<>(4);
+        /***
+         *    3
+         *  2  4
+         *22 33
+         */
+
+//        myPreOder(n1);// 3,2,22,33,4
+//        myInOder(n1);//22，2，33，3，4
+//        myPostOder(n1);//22,33,2,4,3
+
+
+//        myIterativePreOder(n1);
+//        myIterativeInOder(n1);
+
+        myIterativePostOder(n1);
+
+    }
+
+
+    public static void main11(String[] args) {
 
         BST<Integer> bst=new BST<>();
 
@@ -135,7 +256,7 @@ public class BST< T extends Comparable<T>> {
         bst.insert(1);
         bst.insert(11);
 
-//        bst.showAll();
+        bst.showAll();
 
 //        System.out.println(bst.search(9));
 //        bst.delete(6);
@@ -143,7 +264,7 @@ public class BST< T extends Comparable<T>> {
         //中序递归
 //        bst.showAll();
         //中序迭代
-        bst.inOrderiterator(bst.root);
+//        bst.inOrderiterator(bst.root);
 
     }
 
@@ -165,7 +286,11 @@ public class BST< T extends Comparable<T>> {
         public Node<T> left;
         public Node<T> right;
 
-        public Node(T data, Node<T> left, Node<T> right) {
+       public Node(T data) {
+           this.data = data;
+       }
+
+       public Node(T data, Node<T> left, Node<T> right) {
             this.data = data;
             this.left = left;
             this.right = right;
