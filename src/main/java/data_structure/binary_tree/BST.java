@@ -124,7 +124,7 @@ public class BST< T extends Comparable<T>> {
         if (root == null) {
             return;
         }
-        System.out.println(root);
+        System.out.print(root.data + " ");//根节点
         myPreOder(root.left);//全部遍历完左子树
         myPreOder(root.right);//全部遍历完右子树
     }
@@ -155,7 +155,7 @@ public class BST< T extends Comparable<T>> {
             return;
         }
         myInOder(root.left);//全部遍历完左子树
-        System.out.println(root);
+        System.out.print(root.data + " ");//根节点
         myInOder(root.right);//全部遍历完右子树
     }
 
@@ -189,7 +189,7 @@ public class BST< T extends Comparable<T>> {
         }
         myPostOder(root.left);//全部遍历完左子树
         myPostOder(root.right);//全部遍历完右子树
-        System.out.println(root);
+        System.out.print(root.data + " ");//根节点
     }
 
     //迭代后序
@@ -221,26 +221,28 @@ public class BST< T extends Comparable<T>> {
 
 
     public static void main(String[] args) {
-        Node<Integer> n1 = new Node<>(3);
-        n1.left = new Node<>(2);
-        n1.left.left = new Node<>(22);
-        n1.left.right = new Node<>(33);
-        n1.right = new Node<>(4);
+        Node<Integer> n1 = new Node<>(1);
+        n1.left = new Node<>(12);
+        n1.left.left = new Node<>(5);
+        n1.left.right = new Node<>(6);
+        n1.right = new Node<>(9);
         /***
          *    3
          *  2  4
          *22 33
          */
 
-//        myPreOder(n1);// 3,2,22,33,4
-//        myInOder(n1);//22，2，33，3，4
-//        myPostOder(n1);//22,33,2,4,3
+        myPreOder(n1);
+        System.out.println();
+        myInOder(n1);
+        System.out.println();
+        myPostOder(n1);
 
 
 //        myIterativePreOder(n1);
 //        myIterativeInOder(n1);
 
-        myIterativePostOder(n1);
+//        myIterativePostOder(n1);
 
     }
 
