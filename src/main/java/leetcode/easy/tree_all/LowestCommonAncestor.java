@@ -1,5 +1,12 @@
 package leetcode.easy.tree_all;
 
+/****
+ *
+ * link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+ *
+ * 给定两个节点，让求出这两个节点的最小公共父节点的值
+ *
+ */
 public class LowestCommonAncestor {
 
     public static void main(String[] args) {
