@@ -2,6 +2,13 @@ package leetcode.easy.tree_all;
 
 import java.util.Stack;
 
+/****
+ *
+ * https://leetcode.com/problems/subtree-of-another-tree/
+ *
+ * 给定两棵树s和t，现在判断t是否属于s的一颗子树
+ *
+ */
 public class SubtreeAnotherTree {
 
     public static void main(String[] args) {
