@@ -1,29 +1,27 @@
 package leetcode.easy.hash_table_all;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+/***
+ *
+ * https://leetcode.com/problems/occurrences-after-bigram/
+ *
+ * 给出第1个和第二个单词，让求出第三个单词，并返回结果数组
+ */
 public class OccurrencesAfterBigram {
 
     public static String[] findOcurrences(String text, String first, String second) {
-
-        String regex = first + " " + second + "\\s\\b(?<t>\\w+)\\b?";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        Matcher matcher = pattern.matcher(text);
-
-        List<String> list = new ArrayList<>();
-
-        while (matcher.find()) {
-            for (int i = 1; i <= matcher.groupCount(); i++) {
-                list.add(matcher.group(i));
+        List<String> res = new ArrayList<>();
+        String words[] = text.split(" ");
+        for (int i = 0; i < words.length - 2; i++) {
+            if (words[i].equals(first) && words[i + 1].equals(second)) {
+                res.add(words[i + 2]);
             }
-        }
 
-//        System.out.println(list);
-        return list.toArray(new String[list.size()]);
+        }
+        return res.toArray(new String[2]);
     }
 
     public static void main(String[] args) {
