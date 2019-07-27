@@ -1,4 +1,4 @@
-package algorithm.lru_cache;
+package algorithm.cache_algorithm;
 
 import java.util.HashMap;
 import java.util.Map;
