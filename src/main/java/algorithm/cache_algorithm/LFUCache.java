@@ -148,6 +148,7 @@ public class LFUCache {
 
     public static void main(String[] args) {
 
+        //构建一个容量为3的LFU缓存实例
         LFUCache cache=new LFUCache(3);
 
         cache.put(1,1);// 添加 1
