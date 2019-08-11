@@ -29,7 +29,7 @@ public class IsomorphicStrings {
             }
             //相等则都从0计数，保持统一
             m1[s.charAt(i)]=i+1;
-            m2[s.charAt(i)]=i+1;
+            m2[t.charAt(i)]=i+1;
         }
 
         //若都符合，都返回true
