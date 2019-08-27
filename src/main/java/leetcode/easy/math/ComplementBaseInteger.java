@@ -3,7 +3,7 @@ package leetcode.easy.math;
 /****
  *https://leetcode.com/problems/complement-of-base-10-integer/
  *
- * 待验证
+ * 待排查
  *
  *
  *
