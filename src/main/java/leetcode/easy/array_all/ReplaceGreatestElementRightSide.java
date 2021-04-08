@@ -27,6 +27,7 @@ public class ReplaceGreatestElementRightSide {
     public static void main(String[] args) {
 
         System.out.println(Arrays.toString(replaceElements(new int[]{17,18,5,4,6,1})));
+        //[18, 6, 6, 6, 1, -1]
 
     }
 
